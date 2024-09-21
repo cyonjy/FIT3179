@@ -15,10 +15,11 @@
 <div id="symbol_map"></div>
 
 <script type="text/javascript">
+  // Change this to the full URL if needed
+  var spec = "https://raw.githubusercontent.com/cyonjy/FIT3179/main/w9-homework/js/proportional_map.json";  
 
-  var spec = "w9-homework/js/proportional_map.json";  // Correct file extension
-  vegaEmbed('#symbol_map', spec).then(function(result) {  // Use 'spec' here, not 'spec2'
-    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  vegaEmbed('#symbol_map', spec).then(function(result) {
+    // Visualization successfully rendered
   }).catch(console.error);
 </script>
 
