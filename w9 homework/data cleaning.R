@@ -26,5 +26,5 @@ View(df_filtered)
 df_filtered <- na.omit(df_filtered)
 
 household_income <- as.data.frame(df_filtered)
-write.csv(household_income, "/Users/cherylynyong/Library/CloudStorage/OneDrive-MonashUniversity/Y3S2 FIT3179/fit3179/cleaned_household_income.csv", row.names=FALSE)
+write.csv(household_income, "/Users/cherylynyong/Library/CloudStorage/OneDrive-MonashUniversity/Y3S2 FIT3179/FIT3179-1/cleaned_household_income.csv", row.names=FALSE)
 
