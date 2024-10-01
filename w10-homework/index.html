@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Income, Poverty, and GINI in Malaysia (2022)</title>
+  
+  <!-- Import Vega & Vega-Lite -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+  
+  <!-- CSS file -->
+  <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0; /* Light gray background */
+      margin: 0;
+      padding: 20px; /* Add padding to body */
+    }
+    #symbol_map {
+      background: white; /* White background for the map */
+      border-radius: 8px; /* Rounded corners */
+      padding: 20px; /* Padding around the map */
+      align-content: center; /* Center the map */;
+    }
+    h2 {
+      text-align: left; /* Center the title */
+      color: #333; /* Dark gray text for the title */
+    }
+  </style>
+  
+</head>
+<body>
+  
+<h2>Week 9 Homework</h2>
+<div id="symbol_map"></div>
+
+<script type="text/javascript">
+  // Change this to the full URL if needed
+  var spec = "https://raw.githubusercontent.com/cyonjy/FIT3179/main/w9-homework/js/proportional_map.json";  
+
+  vegaEmbed('#symbol_map', spec).then(function(result) {
+    // Visualization successfully rendered
+  }).catch(console.error);
+</script>
+
+</body>
+</html>
+

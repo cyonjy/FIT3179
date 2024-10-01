@@ -1,0 +1,231 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 1600,
+    "height": 1000,
+    "title": "Income, Poverty, and GINI in Malaysia (2022)",
+    "data": {
+        "url": "https://raw.githubusercontent.com/cyonjy/FIT3179/main/w10-homework/data/cleaned_household_income.csv"
+    },
+    "params": [
+        {
+            "name": "state_option",
+            "bind": {
+                "input": "select",
+                "options": [
+                    null,
+                    "Johor",
+                    "Kedah",
+                    "Kelantan",
+                    "Melaka",
+                    "Negeri Sembilan",
+                    "Pahang",
+                    "Pulau Pinang",
+                    "Perak",
+                    "Perlis",
+                    "Selangor",
+                    "Terengganu",
+                    "Sabah",
+                    "Sarawak",
+                    "W.P. Labuan",
+                    "W.P. Putrajaya"
+                ],
+                "labels": [
+                    "Show All",
+                    "Johor",
+                    "Kedah",
+                    "Kelantan",
+                    "Melaka",
+                    "Negeri Sembilan",
+                    "Pahang",
+                    "Pulau Pinang",
+                    "Perak",
+                    "Perlis",
+                    "Selangor",
+                    "Terengganu",
+                    "Sabah",
+                    "Sarawak",
+                    "W.P. Labuan",
+                    "W.P. Putrajaya"
+                ],
+                "name": "Choose state: "
+            }
+        },
+        {
+            "name": "income_med_slider",
+            "value": 0,
+            "bind": {
+                "input": "range",
+                "min": 0,
+                "max": 13000,
+                "step": 200,
+                "name": "Minimum median income: "
+            }
+        }
+    ],
+    "transform": [
+        {
+            "filter": "state_option == null || datum.state == state_option"
+        },
+        {
+            "filter": "datum.income_median >= income_med_slider"
+        }
+    ],
+    "encoding": {
+        "x": {
+            "field": "income_median",
+            "type": "quantitative",
+            "title": "Median Income",
+            "axis": {
+                "tickCount": 7
+            }
+        },
+        "y": {
+            "field": "poverty",
+            "type": "quantitative",
+            "title": "Poverty Rate",
+            "axis": {
+                "tickCount": 8,
+                "format": ".0f"  
+            }
+        }
+    },
+    "layer": [
+        {
+            "mark": "circle",
+            "encoding": {
+                "size": {
+                    "field": "gini",
+                    "type": "quantitative",
+                    "scale": {
+                        "type": "threshold",
+                        "domain": [0.289, 0.35, 0.44869],
+                        "range": [80, 160, 230, 400]
+                    },
+                    "legend": {
+                        "format": ".1f",
+                        "title": "Gini Coefficient Size"
+                    }
+                },
+                "color": {
+                    "field": "state",
+                    "type": "nominal",
+                    "title": "State",
+                    "scale": {
+                        "domain": [
+                            "Johor",
+                            "Kedah",
+                            "Kelantan",
+                            "Melaka",
+                            "Negeri Sembilan",
+                            "Pahang",
+                            "Pulau Pinang",
+                            "Perak",
+                            "Perlis",
+                            "Selangor",
+                            "Terengganu",
+                            "Sabah",
+                            "Sarawak",
+                            "W.P. Labuan",
+                            "W.P. Putrajaya"
+                        ],
+                        "range": [
+                            "#E63946",
+                            "#F1FAEE",
+                            "#F1C40F",
+                            "#2a9d8f",
+                            "#457b9d",
+                            "#F25F3A",
+                            "#A8DADC",
+                            "#9D5B6E",
+                            "#F1FAEE",
+                            "#264653",
+                            "#D9BF77",
+                            "#0072B2",
+                            "#D55E00",
+                            "#CC79A7",
+                            "#999999",
+                            "#F1E9B1"
+                        ]
+                    }
+                },
+                "opacity": {
+                    "value": 0.6
+                },
+                "tooltip": [
+                    {
+                        "field": "state",
+                        "type": "nominal",
+                        "title": "State"
+                    },
+                    {
+                        "field": "district",
+                        "type": "nominal",
+                        "title": "District"
+                    },
+                    {
+                        "field": "income_median",
+                        "type": "quantitative",
+                        "format": ",",
+                        "title": "Median Income"
+                    },
+                    {
+                        "field": "poverty",
+                        "type": "quantitative",
+                        "format": ".2f",  
+                        "title": "Poverty Rate (%)"
+                    },
+                    {
+                        "field": "gini",
+                        "type": "quantitative",
+                        "format": ".2f",
+                        "title": "Gini Coefficient"
+                    }
+                ]
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "align": "center",
+                "baseline": "middle",
+                "dy": -15,
+                "fontSize": 9.5
+            },
+            "encoding": {
+                "text": {
+                    "field": "state",
+                    "type": "nominal"
+                },
+                "color": {
+                    "value": "black"
+                },
+                "opacity": {
+                    "condition": {
+                        "test": "datum.state != null",
+                        "value": 1
+                    },
+                    "value": 0
+                }
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "align": "center",
+                "baseline": "middle",
+                "dx": 0,
+                "dy": -40,
+                "fontSize": 12,
+                "fontWeight": "bold"
+            },
+            "encoding": {
+                "text": {
+                    "value": "Overall Income and Poverty Analysis"
+                },
+                "color": {
+                    "value": "black"
+                }
+            }
+        }
+    ]
+}
