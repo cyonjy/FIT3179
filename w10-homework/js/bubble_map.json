@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 2000,
+    "width": 1380,
     "height": 2000,
     "title": "Income, Poverty, and GINI in Malaysia (2022)",
     "data": {
