@@ -1,0 +1,160 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 600,
+    "title": "Income, Poverty, and GINI in Malaysia (2022)",
+    "data": {
+      "url": "https://raw.githubusercontent.com/cyonjy/FIT3179/main/w10-homework/data/cleaned_household_income.csv"
+    },
+    "params": [
+      {
+        "name": "income_med_slider",
+        "value": 0,
+        "bind": {
+          "input": "range",
+          "min": 0,
+          "max": 15000,
+          "step": 200,
+          "name": "Minimum median income: "
+        }
+      },
+      {
+        "name": "state_option",
+        "bind": {
+          "input": "select",
+          "options": [
+            null,
+            "Johor",
+            "Kedah",
+            "Kelantan",
+            "Melaka",
+            "Negeri Sembilan",
+            "Pahang",
+            "Pulau Pinang",
+            "Perak",
+            "Perlis",
+            "Selangor",
+            "Terengganu",
+            "Sabah",
+            "Sarawak",
+            "W.P. Labuan",
+            "W.P. Putrajaya"
+          ],
+          "labels": [
+            "Show All",
+            "Johor",
+            "Kedah",
+            "Kelantan",
+            "Melaka",
+            "Negeri Sembilan",
+            "Pahang",
+            "Pulau Pinang",
+            "Perak",
+            "Perlis",
+            "Selangor",
+            "Terengganu",
+            "Sabah",
+            "Sarawak",
+            "W.P. Labuan",
+            "W.P. Putrajaya"
+          ],
+          "name": "Choose state: "
+        }
+      }
+    ],
+    "transform": [
+      {
+        "filter": "state_option == null || datum.state == state_option"
+      },
+      {
+        "filter": "datum.income_median >= income_med_slider"
+      }
+    ],
+    "encoding": {
+      "x": {
+        "field": "income_median",
+        "type": "quantitative",
+        "title": "Median Income",
+        "axis": {
+          "tickCount": 7
+        }
+      },
+      "y": {
+        "field": "poverty",
+        "type": "quantitative",
+        "axis": {
+          "tickCount": 6
+        }
+      }
+    },
+    "layer": [
+      {
+        "mark": "circle",
+        "encoding": {
+          "size": {
+            "field": "gini",
+            "type": "quantitative",
+            "scale": {
+              "type": "threshold",
+              "domain": [0.1, 0.2, 0.3, 0.4, 0.5],
+              "range": [10, 50, 150, 200, 300, 400]
+            },
+            "legend": {
+              "format": ".1s"
+            }
+          },
+          "opacity": {
+            "value": 0.6
+          },
+          "tooltip": [
+            {
+              "field": "state",
+              "type": "nominal"
+            },
+            {
+              "field": "income_median",
+              "type": "quantitative",
+              "format": ","
+            },
+            {
+              "field": "poverty",
+              "type": "quantitative",
+              "format": ".2%"
+            },
+            {
+              "field": "gini",
+              "type": "quantitative",
+              "format": ".2f"
+            }
+          ]
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "right",
+          "baseline": "middle",
+          "dx": -12,
+          "fontSize": 11.5,
+          "fontStyle": "italic"
+        },
+        "encoding": {
+          "text": {
+            "field": "state",
+            "type": "nominal"
+          },
+          "color": {
+            "value": "black"
+          },
+          "opacity": {
+            "condition": {
+              "test": "datum['state'] == 'Kedah' || datum['state'] == 'Kelantan' || datum['state'] == 'Melaka' || datum['state'] == 'Negeri Sembilan' || datum['state'] == 'Pahang' || datum['state'] == 'Pulau Pinang' || datum['state'] == 'Perak' || datum['state'] == 'Perlis' || datum['state'] == 'Selangor' || datum['state'] == 'Terengganu' || datum['state'] == 'Sabah' || datum['state'] == 'Sarawak' || datum['state'] == 'W.P. Labuan' || datum['state'] == 'W.P. Putrajaya'",
+              "value": 1
+            },
+            "value": 0
+          }
+        }
+      }
+    ]
+  }
+  
