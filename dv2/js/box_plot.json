@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Distribution of Income by State",
-    "width": 800,  
+    "width": 1000,  
     "height": 400, 
     "data": {
       "url": "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/data/cleaned_household_income.csv"
