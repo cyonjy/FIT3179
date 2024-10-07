@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Income, Poverty, and GINI in Malaysia (2022)</title>
+  <title>Proportional Symbol Map of Income and Poverty in Malaysia (2022)</title>
   
   <!-- Import Vega & Vega-Lite -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
@@ -20,27 +20,36 @@
       margin: 0;
       padding: 20px; /* Add padding to body */
     }
+    
+    h2 {
+      text-align: center; /* Center the title */
+      color: #333; /* Dark gray text for the title */
+      margin-bottom: 20px; /* Space below the title */
+      font-size: 1.8em; /* Slightly larger font size for the title */
+    }
+
     #symbol_map {
       background: white; /* White background for the map */
       border-radius: 8px; /* Rounded corners */
       padding: 20px; /* Padding around the map */
-      align-content: center; /* Center the map */;
-    }
-    h2 {
-      text-align: left; /* Center the title */
-      color: #333; /* Dark gray text for the title */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+      max-width: 800px; /* Maximum width for the map container */
+      margin: 0 auto; /* Center the map container */
     }
   </style>
   
 </head>
 <body>
   
-<h2>Week 10 Homework</h2>
+<h2>Household Income and Expenditure: Administrative Districts</h2>
 <div id="symbol_map"></div>
 
 <script type="text/javascript">
   // Change this to the full URL if needed
-  var spec = "https://raw.githubusercontent.com/cyonjy/FIT3179/main/w10-homework/js/bar_chart_with_map.json";  
+  var spec = "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/js/proportional_map.json";  
+  var spec2 = "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/js/bar_chart.json";
+  var spec3 = "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/js/box_plot.json";
+  var spec4 = "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/js/facet_grid.json";
 
   vegaEmbed('#symbol_map', spec).then(function(result) {
     // Visualization successfully rendered
@@ -49,4 +58,3 @@
 
 </body>
 </html>
-

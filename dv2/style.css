@@ -1,8 +1,39 @@
+/* Overall body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Light gray background */
+    margin: 0;
+    padding: 20px; /* Add padding to body */
+}
+
+/* Title styling */
+h2 {
+    text-align: center; /* Center the title */
+    color: #333; /* Dark gray text for the title */
+    margin-bottom: 20px; /* Space below the title */
+    font-size: 1.8em; /* Slightly larger font size for the title */
+}
+
+/* Symbol map container styling */
 #symbol_map {
-	top:100px;
-	bottom: 100px; 
-	left: 100px;
-	right: 100px;
-	/*height: 1000px;
-	width: 800px;*/
+    background: white; /* White background for the map */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding around the map */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 800px; /* Maximum width for the map container */
+    margin: 0 auto; /* Center the map container */
+    position: relative; /* Position relative for top/bottom/left/right offsets */
+    top: 100px; /* Space from the top */
+    bottom: 100px; /* Space from the bottom */
+    left: 100px; /* Space from the left */
+    right: 100px; /* Space from the right */
+}
+
+/* Make the symbol map responsive */
+@media (max-width: 600px) {
+    #symbol_map {
+        width: 90%; /* Full width on smaller screens */
+        left: 5%; /* Align it slightly from the left */
+        right: 5%; /* Align it slightly from the right */
+    }
 }
