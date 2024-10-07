@@ -1,0 +1,179 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/data/cleaned_household_income.csv"
+  },
+  "params": [
+    {
+      "name": "state_option",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Johor",
+          "Kedah",
+          "Kelantan",
+          "Melaka",
+          "Negeri Sembilan",
+          "Pahang",
+          "Pulau Pinang",
+          "Perak",
+          "Perlis",
+          "Selangor",
+          "Terengganu",
+          "Sabah",
+          "Sarawak",
+          "W.P. Labuan",
+          "W.P. Putrajaya"
+        ],
+        "labels": [
+          "Show All",
+          "Johor",
+          "Kedah",
+          "Kelantan",
+          "Melaka",
+          "Negeri Sembilan",
+          "Pahang",
+          "Pulau Pinang",
+          "Perak",
+          "Perlis",
+          "Selangor",
+          "Terengganu",
+          "Sabah",
+          "Sarawak",
+          "W.P. Labuan",
+          "W.P. Putrajaya"
+        ],
+        "name": "Choose state: "
+      }
+    }
+  ],
+  "width": 700,
+  "height": 450,
+  "title": "Total Median Income by State in Malaysia (2022)",
+  "transform": [
+  {
+    "aggregate": [
+      {
+        "op": "sum",
+        "field": "income_median",
+        "as": "total_income"
+      }
+    ],
+    "groupby": ["state"]
+  },
+  {
+    "window": [
+      {
+        "op": "rank",
+        "as": "rank"
+      }
+    ],
+    "sort": [
+      {
+        "field": "total_income",
+        "order": "descending"
+      }
+    ]
+  },
+  {
+    "window": [
+      {
+        "op": "rank",
+        "as": "lowest_rank"
+      }
+    ],
+    "sort": [
+      {
+        "field": "total_income",
+        "order": "ascending"
+      }
+    ]
+  },
+  {
+    "calculate": "state_option == null && datum.rank == 1 ? 'Highest total median income: ' + datum.state + '; Amount: RM' + datum.total_income : ''",
+    "as": "highest_annotation_raw"
+  },
+  {
+    "calculate": "state_option == null && datum.lowest_rank == 1 ? 'Lowest total median income: ' + datum.state + '; Amount: RM' + datum.total_income : ''",
+    "as": "lowest_annotation_raw"
+  },
+  {
+    "calculate": "split(datum.highest_annotation_raw, ';')",
+    "as": "highest_annotation"
+  },
+  {
+    "calculate": "split(datum.lowest_annotation_raw, ';')",
+    "as": "lowest_annotation"
+  }
+],
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "color": "#f6d49d"
+      },
+      "encoding": {
+        "x": {
+          "field": "state",
+          "type": "nominal",
+          "title": "State",
+          "axis": {
+            "labelAngle": 270,
+            "grid": false
+          }
+        },
+        "y": {
+          "field": "total_income",
+          "type": "quantitative",
+          "title": "Total Median Income (RM)",
+          "axis": {
+            "format": ".2f",
+            "grid": false
+          }
+        },
+        
+        "tooltip": [
+          { "field": "state", "type": "nominal", "title": "State" },
+          { "field": "total_income", "type": "quantitative", "title": "Total Median Income (RM)", "format": ".2f" }
+        ]
+      },
+      "transform": [
+        {
+          "filter": "state_option == null || datum.state == state_option"
+        }
+      ]
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "dy": -10,
+        "fontSize": 10,
+        "color": "darkred"
+      },
+      "encoding": {
+        "x": { "field": "state", "type": "nominal" },
+        "y": { "field": "total_income", "type": "quantitative" },
+        "text": { "field": "highest_annotation", "type": "nominal" }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "dy": -10,
+        "fontSize": 10,
+        "color": "blue"
+      },
+      "encoding": {
+        "x": { "field": "state", "type": "nominal" },
+        "y": { "field": "total_income", "type": "quantitative" },
+        "text": { "field": "lowest_annotation", "type": "nominal" }
+      }
+    }
+  ],
+  "config": { "title": { "font": "sans-serif", "fontSize": 14 } }
+}

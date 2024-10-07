@@ -1,0 +1,37 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Distribution of Income by State",
+    "width": 500,  
+    "height": 400, 
+    "data": {
+      "url": "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/data/cleaned_household_income.csv"
+    },
+    "mark": "boxplot",
+    "encoding": {
+      "x": {
+        "field": "state",
+        "type": "nominal",
+        "title": "State"
+      },
+      "color": {
+        "field": "state",
+        "type": "nominal",
+        "legend": null,
+        "scale": {
+          "scheme": "category10"  
+        }
+      },
+      "y": {
+        "field": "income_mean",
+        "type": "quantitative",
+        "title": "Mean Income (RM)",
+        "scale": {
+          "zero": false
+        },
+        "axis": {
+          "format": ".2f"  
+        }
+      }
+    }
+  }
+  

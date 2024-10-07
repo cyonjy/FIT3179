@@ -1,0 +1,52 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/data/cleaned_household_income.csv"
+    },
+    "width": 200,  
+    "height": 200, 
+    "mark": "circle",
+    "encoding": {
+      "facet": {
+        "field": "state",
+        "type": "nominal",
+        "title": "State",
+        "columns": 5
+      },
+      "x": {
+        "field": "expenditure_mean",  
+        "type": "quantitative",
+        "title": "Expenditure Mean (RM)",
+        "axis":{
+            "format": ".2f"
+        }
+      },
+      "y": {
+        "field": "gini",  
+        "type": "quantitative",
+        "title": "Gini Coefficient"
+      },
+      "color": {
+        "field": "state",  
+        "type": "nominal",
+        "title": "State",
+        "legend": null,
+        "scale": {
+          "scheme": "category10"  
+        }
+      },
+      "tooltip": [
+        { "field": "state", "type": "nominal", "title": "State" },
+        { "field": "district", "type": "nominal", "title": "District" },
+        { "field": "expenditure_mean", "type": "quantitative", "title": "Expenditure Mean (RM)" },
+        { "field": "gini", "type": "quantitative", "title": "Gini Coefficient" }
+      ]
+    },
+    "resolve": {
+      "axis": {
+        "x": "independent",
+        "y": "independent"
+      }
+    }
+  }
+  
