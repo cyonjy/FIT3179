@@ -3,8 +3,8 @@
     "data": {
       "url": "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/data/cleaned_household_income.csv"
     },
-    "width": 200,  
-    "height": 200, 
+    "width": 100,  
+    "height": 100, 
     "mark": "circle",
     "encoding": {
       "facet": {
