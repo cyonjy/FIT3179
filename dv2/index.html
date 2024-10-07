@@ -10,9 +10,6 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
   
-  <!-- CSS file -->
-  <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
-  
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -21,32 +18,49 @@
       padding: 20px; /* Add padding to body */
     }
 
-    #visualization {
+    .title-container {
+      background-color: #4CAF50; /* Green background for the title */
+      color: white; /* White text color */
+      padding: 10px; /* Padding around the text */
+      border-radius: 8px; /* Rounded corners */
+      text-align: center; /* Center the text */
+      margin-bottom: 20px; /* Space below the title */
+    }
+
+    .visualization-container {
       background: white; /* White background for the visualizations */
       border-radius: 8px; /* Rounded corners */
       padding: 20px; /* Padding around the visualizations */
       margin-bottom: 20px; /* Space between visualizations */
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+      max-width: 800px;
+      margin: 20px auto; /* Center the container on the page */
     }
 
     h2 {
-      text-align: center; /* Center the title */
-      color: #333; /* Dark gray text for the title */
-      margin-bottom: 20px; /* Space below the title */
+      margin: 0; /* Remove default margin */
       font-size: 1.8em; /* Slightly larger font size for the title */
+    }
+
+    label {
+      display: block;
+      margin: 20px auto;
+      text-align: center;
     }
   </style>
   
 </head>
 <body>
 
-<h2>Household Income and Expenditure: Administrative Districts</h2>
+<div class="title-container">
+  <h2>Household Income and Expenditure: Administrative Districts</h2>
+</div>
 
 <!-- Container for each visualization -->
-<div id="symbol_map"></div>
-<div id="bar_chart"></div>
-<div id="box_plot"></div>
-<div id="facet_grid"></div>
+<div class="visualization-container" id="symbol_map"></div>
+<div class="visualization-container" id="bar_chart"></div>
+<div class="visualization-container" id="box_plot"></div>
+<div class="visualization-container" id="facet_grid"></div>
 
 <script type="text/javascript">
   // Spec URLs
@@ -55,22 +69,33 @@
   var spec3 = "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/js/box_plot.json";
   var spec4 = "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/js/facet_grid.json";
 
-  // Render the visualizations
-  vegaEmbed('#symbol_map', spec1).then(function(result) {
-    // Visualization successfully rendered
-  }).catch(console.error);
+  // Function to render visualizations with filtering
+  function renderVisualizations(state) {
+    // Filter data for each spec and pass the selected state
+    var filteredSpec1 = spec1 + '?state=' + state;
+    var filteredSpec2 = spec2 + '?state=' + state;
+    var filteredSpec3 = spec3 + '?state=' + state;
+    var filteredSpec4 = spec4 + '?state=' + state;
 
-  vegaEmbed('#bar_chart', spec2).then(function(result) {
-    // Visualization successfully rendered
-  }).catch(console.error);
+    vegaEmbed('#symbol_map', filteredSpec1).then(function(result) {
+      // Visualization successfully rendered
+    }).catch(console.error);
 
-  vegaEmbed('#box_plot', spec3).then(function(result) {
-    // Visualization successfully rendered
-  }).catch(console.error);
+    vegaEmbed('#bar_chart', filteredSpec2).then(function(result) {
+      // Visualization successfully rendered
+    }).catch(console.error);
 
-  vegaEmbed('#facet_grid', spec4).then(function(result) {
-    // Visualization successfully rendered
-  }).catch(console.error);
+    vegaEmbed('#box_plot', filteredSpec3).then(function(result) {
+      // Visualization successfully rendered
+    }).catch(console.error);
+
+    vegaEmbed('#facet_grid', filteredSpec4).then(function(result) {
+      // Visualization successfully rendered
+    }).catch(console.error);
+  }
+
+  // Initial render with all states
+  renderVisualizations('all');
 </script>
 
 </body>
