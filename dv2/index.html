@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visualization with Sidebar</title>
     <style>
-        .visualization-wrapper {
-            display: flex; /* Use flexbox for horizontal layout */
-            margin-bottom: 20px; /* Space between different visualizations */
-        }
-
         body {
             display: flex;
             flex-direction: column;
@@ -18,49 +13,67 @@
             padding: 20px;
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
+            background-image: url('https://images.unsplash.com/photo-1562060726-e47264af32bd?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fG1hbGF5c2lhfGVufDB8fDB8fHww'); 
+            background-attachment: fixed;
         }
 
         .title-container {
             width: 100%; /* Full width */
             max-width: 1350px; /* Maximum width of the title container */
-            background: white;
+            background: rgba(232, 250, 232, 0.832); /* Slightly transparent white */
             border-radius: 5px;
             padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             margin: 20px auto; /* Center the container and add some vertical spacing */
             text-align: center; /* Center the text */
+        }
+
+        .visualization-wrapper {
+            display: flex; /* Use flexbox for horizontal layout */
+            margin-bottom: 20px; /* Space between different visualizations */
         }
 
         .visualization-container {
             flex: 1; /* Flexible width of the graph container */
             min-height: 200px; /* Minimum height to ensure visibility */
             max-height: 1000px; /* Maximum height to maintain layout */
-            background: white;
+            background: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
             border-radius: 8px;
             padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             margin: 0 20px; /* Space between graph and sidebar */
+            transition: transform 0.3s; /* Animation for hover effect */
+        }
+
+        .visualization-container:hover {
+            transform: scale(1.02); /* Scale effect on hover */
         }
 
         .sidebar {
             width: 40%; /* Fixed width of the sidebar */
             min-height: 400px; /* Minimum height to ensure visibility */
             max-height: 700px; /* Maximum height to maintain layout */
-            background: #e0e0e0; /* Light gray background for sidebar */
+            background: rgba(246, 236, 250, 0.709); /* Light gray background with transparency */
             border-radius: 8px;
             padding: 10px; /* Reduced padding for a smaller box */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s; /* Animation for hover effect */
+        }
+
+        .sidebar:hover {
+            transform: scale(1.02); /* Scale effect on hover */
         }
 
         h2 {
-        text-align: center;
-        color: #333;
-    }
+            text-align: center;
+            color: #333;
+        }
 
-    p {
-        line-height: 1.6; /* Improved line spacing for readability */
-        text-align: center; /* Justify text format */
-    }
+        p {
+            line-height: 1.6; /* Improved line spacing for readability */
+            text-align: center; /* Justify text format */
+            color: #555; /* Darker text for better readability */
+        }
     </style>
 </head>
 <body>
@@ -130,6 +143,7 @@
                 Conversely, <strong>Johor</strong>, <strong>Melaka</strong>, <strong>Pulau Pinang</strong>, 
                 <strong>Terengganu</strong>, and <strong>Labuan</strong> exhibit medium income levels. Overall, 
                 <strong>Selangor</strong> and <strong>Putrajaya</strong> represent the highest income brackets.
+            </p>
         </div>
     </div>
 

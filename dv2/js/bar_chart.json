@@ -117,7 +117,7 @@
     {
       "mark": {
         "type": "bar",
-        "color": "#f6d49d"
+        "color": "#fccea2dc"
       },
       "encoding": {
         "x": {
