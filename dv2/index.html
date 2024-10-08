@@ -15,11 +15,11 @@
         .visualization-wrapper {
             display: flex; /* Use flexbox for horizontal layout */
             margin-bottom: 20px; /* Space between different visualizations */
-            align-items: flex-start; /* Align items at the top */
         }
 
         .title-container {
-            width: 1380px; /* Width of the graph container */
+            width: 100%; /* Full width */
+            max-width: 1380px; /* Maximum width of the title container */
             background: white;
             border-radius: 5px;
             padding: 5px;
@@ -28,9 +28,10 @@
             text-align: center; /* Center the text */
         }
 
-
         .visualization-container {
-            width: 1180px; /* Width of the graph container */
+            width: 85%; /* Fixed width of the graph container */
+            min-height: 200px; /* Minimum height to ensure visibility */
+            max-height: 1000px; /* Maximum height to maintain layout */
             background: white;
             border-radius: 8px;
             padding: 20px;
@@ -40,12 +41,16 @@
         }
 
         .sidebar {
-            width: 200px; /* Width of the sidebar */
+            width: 40%; /* Fixed width of the sidebar */
+            min-height: 400px; /* Minimum height to ensure visibility */
+            max-height: 600px; /* Maximum height to maintain layout */
+            height: 100%; /* Ensure the sidebar takes the full height of the visualization-wrapper */
             background: #e0e0e0; /* Light gray background for sidebar */
             border-radius: 8px;
             padding: 10px; /* Reduced padding for a smaller box */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+
 
         h2 {
             text-align: center;
@@ -56,10 +61,11 @@
 <body>
 
     <div class="title-container" id="graphContainer">
-        <h2>Household Income and Expenditure: Administrative Districts</h2>
-        <p>This data visualization explores various socio-economic indicators across Malaysian states and districts, <br>
-          providing a comprehensive overview of household income, poverty levels, <br>
-          the Gini index, and expenditure patterns.</p>
+        <h2>Malaysia's Socio-Economic Landscape</h2>
+        <p>This data visualization explores various socio-economic indicators across <br>
+           Malaysian states and districts, providing a comprehensive overview <br>
+           of household income, poverty levels, the <br>
+           Gini index, and expenditure patterns.</p>
     </div>
 
     <br>
@@ -83,7 +89,6 @@
         <div class="visualization-container" id="bar_chart">
             <!-- Your graph will be rendered here -->
         </div>
-
     </div>
 
     <div class="visualization-wrapper">
