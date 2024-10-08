@@ -8,7 +8,8 @@
       "subtitle": "An analysis of the relationship between expenditure and income inequality across states in Malaysia.",
       "anchor": "middle",
       "fontSize": 16,
-      "subtitleFontSize": 12
+      "subtitleFontSize": 12,
+      "subtitleLineHeight": 1.5
     },
     "width": 160,  
     "height": 130, 
