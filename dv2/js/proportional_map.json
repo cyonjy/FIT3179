@@ -143,7 +143,7 @@
     {
       "data": {
         "values": [
-          {"state": "Sabah", "longitude": 117.3, "latitude": 7.6, "label": "Sabah has the highest poverty level."}
+          {"state": "Sabah", "longitude": 117.3, "latitude": 7.6, "label": "Sabah has the highest poverty level"}
         ]
       },
       "mark": {
