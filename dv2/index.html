@@ -36,6 +36,7 @@
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-right: 20px; /* Space between graph and sidebar */
+            margin-left: 20px;
         }
 
         .sidebar {
@@ -75,13 +76,14 @@
     </div>
 
     <div class="visualization-wrapper">
+        <div class="sidebar">
+          <h2>Bar Chart Info</h2>
+          <p>This is additional information for the bar chart.</p>
+        </div>
         <div class="visualization-container" id="bar_chart">
             <!-- Your graph will be rendered here -->
         </div>
-        <div class="sidebar">
-            <h2>Bar Chart Info</h2>
-            <p>This is additional information for the bar chart.</p>
-        </div>
+
     </div>
 
     <div class="visualization-wrapper">
@@ -95,12 +97,12 @@
     </div>
 
     <div class="visualization-wrapper">
+        <div class="sidebar">
+          <h2>Facet Grid Info</h2>
+          <p>This is additional information for the facet grid.</p>
+        </div>
         <div class="visualization-container" id="facet_grid">
             <!-- Your graph will be rendered here -->
-        </div>
-        <div class="sidebar">
-            <h2>Facet Grid Info</h2>
-            <p>This is additional information for the facet grid.</p>
         </div>
     </div>
 

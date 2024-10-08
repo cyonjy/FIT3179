@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 988,
+  "width": 1000,
   "height": 500,
   "title": {
     "text": "Proportional Symbol Map of Poverty in Malaysia (2022)",
