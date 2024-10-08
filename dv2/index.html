@@ -5,26 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visualization with Sidebar</title>
     <style>
+        .visualization-wrapper {
+            display: flex; /* Use flexbox for horizontal layout */
+            margin-bottom: 20px; /* Space between different visualizations */
+        }
+
         body {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center children elements horizontally */
             margin: 0;
             padding: 20px;
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
         }
 
-        .visualization-wrapper {
-            display: flex; /* Use flexbox for horizontal layout */
-            margin-bottom: 20px; /* Space between different visualizations */
-        }
-
         .title-container {
             width: 100%; /* Full width */
-            max-width: 1380px; /* Maximum width of the title container */
+            max-width: 1350px; /* Maximum width of the title container */
             background: white;
             border-radius: 5px;
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin: 0 auto; /* Center the container */
+            margin: 20px auto; /* Center the container and add some vertical spacing */
             text-align: center; /* Center the text */
         }
 
@@ -42,7 +45,7 @@
         .sidebar {
             width: 40%; /* Fixed width of the sidebar */
             min-height: 400px; /* Minimum height to ensure visibility */
-            max-height: 600px; /* Maximum height to maintain layout */
+            max-height: 700px; /* Maximum height to maintain layout */
             background: #e0e0e0; /* Light gray background for sidebar */
             border-radius: 8px;
             padding: 10px; /* Reduced padding for a smaller box */
@@ -56,7 +59,7 @@
 
     p {
         line-height: 1.6; /* Improved line spacing for readability */
-        text-align: justify; /* Justify text format */
+        text-align: center; /* Justify text format */
     }
     </style>
 </head>
@@ -80,27 +83,32 @@
         </div>
         <div class="sidebar">
             <h2>Poverty Distribution Map Insights</h2>
-            <p>Sabah has the highest poverty level among Malaysian states, while Pulau Pinang and Selangor 
-                have lower rates. This disparity arises from several economic factors: Sabah, being more 
-                rural and less developed, struggles with limited access to education and healthcare, which drives 
-                up poverty rates. 
+            <p>
+                <strong>Sabah</strong> has the highest poverty level among Malaysian states, while <strong>Pulau Pinang</strong> 
+                and <strong>Selangor</strong> have lower rates. This disparity arises from several economic factors: 
+                <strong>Sabah</strong>, being more rural and less developed, struggles with limited access to education and 
+                healthcare, which drives up poverty rates. 
                 <br><br>
-                In contrast, Pulau Pinang and Selangor benefit from better infrastructure and higher 
-                economic activity, contributing to their lower poverty levels.
+                In contrast, <strong>Pulau Pinang</strong> and <strong>Selangor</strong> benefit from better 
+                infrastructure and higher economic activity, contributing to their lower poverty levels.
             </p>
+            
         </div>
     </div>
 
     <div class="visualization-wrapper">
         <div class="sidebar">
             <h2>Total Median Income Insights</h2>
-            <p>Sarawak boasts the highest total median income at RM145,464, while Perlis has the lowest at RM4,713. 
-                This disparity is largely due to economic development: Sarawak's diverse economy, which includes oil, 
-                gas, agriculture, and manufacturing, supports higher median incomes. 
+            <p>
+                <strong>Sarawak</strong> boasts the highest total median income at <strong>RM145,464</strong>, 
+                while <strong>Perlis</strong> has the lowest at <strong>RM4,713</strong>. This disparity is largely due to 
+                economic development: <strong>Sarawak's</strong> diverse economy, which includes oil, gas, agriculture, and 
+                manufacturing, supports higher median incomes. 
                 <br><br>
-                In contrast, Perlis, the smallest state, relies on agriculture and has a limited industrial base, 
+                In contrast, <strong>Perlis</strong>, the smallest state, relies on agriculture and has a limited industrial base, 
                 which negatively impacts its income levels.
             </p>
+            
         </div>
         <div class="visualization-container" id="bar_chart">
             <!-- Your graph will be rendered here -->
@@ -113,26 +121,33 @@
         </div>
         <div class="sidebar">
             <h2>Income Distribution Insights</h2>
-            <p>Selangor leads Malaysia in mean income, reaching RM9,410, while Kelantan trails with RM3,153. 
-                Several states, including Sarawak, Sabah, Perak, Pahang, Negeri Sembilan, Kelantan, and Kedah, fall below 
-                the national average for mean income. 
+            <p><strong>Selangor</strong> leads Malaysia in mean income, reaching 
+                <strong>RM9,410</strong>, while <strong>Kelantan</strong> trails with <strong>RM3,153</strong>. 
+                Several states, including <strong>Sarawak</strong>, <strong>Sabah</strong>, <strong>Perak</strong>, 
+                <strong>Pahang</strong>, <strong>Negeri Sembilan</strong>, <strong>Kelantan</strong>, and <strong>Kedah</strong>, 
+                fall below the national average for mean income. 
                 <br><br>
-                Conversely, Johor, Melaka, Pulau Pinang, Terengganu, and Labuan exhibit 
-                medium income levels. Overall, Selangor and Putrajaya represent the highest income brackets.
-            </p>
+                Conversely, <strong>Johor</strong>, <strong>Melaka</strong>, <strong>Pulau Pinang</strong>, 
+                <strong>Terengganu</strong>, and <strong>Labuan</strong> exhibit medium income levels. Overall, 
+                <strong>Selangor</strong> and <strong>Putrajaya</strong> represent the highest income brackets.
         </div>
     </div>
 
     <div class="visualization-wrapper">
         <div class="sidebar">
             <h2>Gini Coefficient and Expenditure Insights</h2>
-            <p>Data reveals that Sabah has a high Gini coefficient and low mean expenditure, indicating that many 
-                households struggle to meet basic needs due to inadequate social services. This high inequality suggests 
-                that a few wealthy households dominate economic resources, leaving many with limited financial freedom. 
-                <br><br>
-                In contrast, Selangor’s high mean expenditure and low Gini indicate a more equitable distribution of wealth, 
-                contributing to a better quality of life. Other states fall between these two extremes, showcasing varying levels 
-                of income inequality and expenditure patterns.
+            <p>Data reveals that <strong>Sabah</strong> has a <strong>high Gini coefficient</strong> and 
+                <strong>low mean expenditure</strong>, indicating that many households struggle to meet basic needs 
+                due to inadequate social services. This <strong>high inequality</strong> suggests that a few wealthy households 
+                dominate economic resources, leaving many with limited financial freedom. 
+
+                <br><Br>
+
+                In contrast, <strong>Selangor’s high mean expenditure</strong> and <strong>low Gini</strong> 
+                indicate a <strong>more equitable distribution of wealth</strong>, contributing to a better quality of life. 
+                Other states fall between these two extremes, showcasing varying levels of <strong>income inequality</strong> 
+                and <strong>expenditure patterns</strong>.
+                
             </p>
         </div>
         <div class="visualization-container" id="facet_grid">

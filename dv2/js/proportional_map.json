@@ -15,6 +15,7 @@
   "params": [
     {
       "name": "state_option",
+      "value": null, 
       "bind": {
         "input": "select",
         "options": [
@@ -96,8 +97,8 @@
           "type": "quantitative",
           "title": "Poverty Level",
           "scale": {
-            "range": [10, 150],
-            "domain": [0, 100]
+            "range": [10, 120],
+            "domain": [0, 50]
           }
         },
         "color": {
@@ -114,7 +115,7 @@
         },
         "opacity": {
           "condition": {
-            "test": "datum.state === state_option || state_option === null",
+            "test": "state_option === null || datum.state === state_option",
             "value": 1
           },
           "value": 0.1
@@ -137,6 +138,29 @@
             "format": ".0f"
           }
         ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"state": "Sabah", "longitude": 117.3, "latitude": 7.6, "label": "Sabah has the highest poverty level."}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "color": "darkred"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude"
+        },
+        "latitude": {
+          "field": "latitude"
+        },
+        "text": {
+          "field": "label"
+        }
       }
     }
   ]
