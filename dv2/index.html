@@ -1,110 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Proportional Symbol Map of Income and Poverty in Malaysia (2022)</title>
-  
-  <!-- Import Vega & Vega-Lite -->
-  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
-  
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0; /* Light gray background */
-      margin: 0;
-      padding: 20px; /* Add padding to body */
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualization with Sidebar</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
 
-    .title-container {
-      background-color: #4CAF50; /* Green background for the title */
-      color: white; /* White text color */
-      padding: 10px; /* Padding around the text */
-      border-radius: 8px; /* Rounded corners */
-      text-align: center; /* Center the text */
-      margin-bottom: 20px; /* Space below the title */
-    }
+        .visualization-wrapper {
+            display: flex; /* Use flexbox for horizontal layout */
+            margin-bottom: 20px; /* Space between different visualizations */
+            align-items: flex-start; /* Align items at the top */
+        }
 
-    .visualization-container {
-      background: white; /* White background for the visualizations */
-      border-radius: 8px; /* Rounded corners */
-      padding: 20px; /* Padding around the visualizations */
-      margin-bottom: 20px; /* Space between visualizations */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-      max-width: 1200px;
-      margin: 20px auto; /* Center the container on the page */
-    }
+        .title-container {
+            width: 1380px; /* Width of the graph container */
+            background: white;
+            border-radius: 5px;
+            padding: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 0 auto; /* Center the container */
+            text-align: center; /* Center the text */
+        }
 
-    h2 {
-      margin: 0; /* Remove default margin */
-      font-size: 1.8em; /* Slightly larger font size for the title */
-    }
 
-    h3 {
-      margin: 0; /* Remove default margin */
-      font-size: 1.2em; /* Slightly larger font size for the title */
-    }
+        .visualization-container {
+            width: 1180px; /* Width of the graph container */
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-right: 20px; /* Space between graph and sidebar */
+        }
 
-    label {
-      display: block;
-      margin: 20px auto;
-      text-align: center;
-    }
-  </style>
-  
+        .sidebar {
+            width: 200px; /* Width of the sidebar */
+            background: #e0e0e0; /* Light gray background for sidebar */
+            border-radius: 8px;
+            padding: 10px; /* Reduced padding for a smaller box */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
 
-<div class="title-container"> <br>
-  <h2>Household Income and Expenditure: Administrative Districts</h2> 
-  <p>This data visualization explores various socio-economic indicators across Malaysian states and districts, <br>
-    providing a comprehensive overview of household income, poverty levels, <br>
-    the Gini index, and expenditure patterns.</p>
-</div>
+    <div class="title-container" id="graphContainer">
+        <h2>Household Income and Expenditure: Administrative Districts</h2>
+        <p>This data visualization explores various socio-economic indicators across Malaysian states and districts, <br>
+          providing a comprehensive overview of household income, poverty levels, <br>
+          the Gini index, and expenditure patterns.</p>
+    </div>
 
-<!-- Container for each visualization -->
-<div class="visualization-container" id="symbol_map"></div>
-<div class="visualization-container" id="bar_chart"></div>
-<div class="visualization-container" id="box_plot"></div>
-<div class="visualization-container" id="facet_grid"></div>
+    <br>
 
-<script type="text/javascript">
-  // Spec URLs
-  var spec1 = "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/js/proportional_map.json";  
-  var spec2 = "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/js/bar_chart.json";
-  var spec3 = "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/js/box_plot.json";
-  var spec4 = "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/js/facet_grid.json";
+    <!-- Wrapper for each visualization and sidebar -->
+    <div class="visualization-wrapper">
+        <div class="visualization-container" id="proportional_map">
+            <!-- Your graph will be rendered here -->
+        </div>
+        <div class="sidebar">
+            <h2>Proportional Map Info</h2>
+            <p>This is additional information for the proportional map.</p>
+        </div>
+    </div>
 
-  // Function to render visualizations with filtering
-  function renderVisualizations(state) {
-    // Filter data for each spec and pass the selected state
-    var filteredSpec1 = spec1 + '?state=' + state;
-    var filteredSpec2 = spec2 + '?state=' + state;
-    var filteredSpec3 = spec3 + '?state=' + state;
-    var filteredSpec4 = spec4 + '?state=' + state;
+    <div class="visualization-wrapper">
+        <div class="visualization-container" id="bar_chart">
+            <!-- Your graph will be rendered here -->
+        </div>
+        <div class="sidebar">
+            <h2>Bar Chart Info</h2>
+            <p>This is additional information for the bar chart.</p>
+        </div>
+    </div>
 
-    vegaEmbed('#symbol_map', filteredSpec1).then(function(result) {
-      // Visualization successfully rendered
-    }).catch(console.error);
+    <div class="visualization-wrapper">
+        <div class="visualization-container" id="box_plot">
+            <!-- Your graph will be rendered here -->
+        </div>
+        <div class="sidebar">
+            <h2>Box Plot Info</h2>
+            <p>This is additional information for the box plot.</p>
+        </div>
+    </div>
 
-    vegaEmbed('#bar_chart', filteredSpec2).then(function(result) {
-      // Visualization successfully rendered
-    }).catch(console.error);
+    <div class="visualization-wrapper">
+        <div class="visualization-container" id="facet_grid">
+            <!-- Your graph will be rendered here -->
+        </div>
+        <div class="sidebar">
+            <h2>Facet Grid Info</h2>
+            <p>This is additional information for the facet grid.</p>
+        </div>
+    </div>
 
-    vegaEmbed('#box_plot', filteredSpec3).then(function(result) {
-      // Visualization successfully rendered
-    }).catch(console.error);
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-    vegaEmbed('#facet_grid', filteredSpec4).then(function(result) {
-      // Visualization successfully rendered
-    }).catch(console.error);
-  }
+    <script type="text/javascript">
+      // Spec URLs
+      var spec1 = "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/js/proportional_map.json";  
+      var spec2 = "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/js/bar_chart.json";
+      var spec3 = "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/js/box_plot.json";
+      var spec4 = "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/js/facet_grid.json";
 
-  // Initial render with all states
-  renderVisualizations('all');
-</script>
+      // Function to render visualizations with filtering
+      function renderVisualizations(state) {
+        // Filter data for each spec and pass the selected state
+        var filteredSpec1 = spec1 + '?state=' + state;
+        var filteredSpec2 = spec2 + '?state=' + state;
+        var filteredSpec3 = spec3 + '?state=' + state;
+        var filteredSpec4 = spec4 + '?state=' + state;
+
+        // Render each visualization
+        vegaEmbed('#proportional_map', filteredSpec1).then(function(result) {
+            // Visualization successfully rendered
+        }).catch(console.error);
+
+        vegaEmbed('#bar_chart', filteredSpec2).then(function(result) {
+            // Visualization successfully rendered
+        }).catch(console.error);
+
+        vegaEmbed('#box_plot', filteredSpec3).then(function(result) {
+            // Visualization successfully rendered
+        }).catch(console.error);
+
+        vegaEmbed('#facet_grid', filteredSpec4).then(function(result) {
+            // Visualization successfully rendered
+        }).catch(console.error);
+      }
+
+      // Initial render with all states
+      renderVisualizations('all');
+    </script>
 
 </body>
 </html>
