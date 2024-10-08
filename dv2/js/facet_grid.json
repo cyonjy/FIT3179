@@ -3,6 +3,13 @@
     "data": {
       "url": "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/data/cleaned_household_income.csv"
     },
+    "title": {
+      "text": "Relationship between Expenditure and Income Inequality",
+      "subtitle": "An analysis of the relationship between expenditure and income inequality across states in Malaysia.",
+      "anchor": "middle",
+      "fontSize": 16,
+      "subtitleFontSize": 12
+    },
     "width": 160,  
     "height": 130, 
     "mark": "circle",

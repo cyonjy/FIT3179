@@ -1,6 +1,12 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Distribution of Income by State",
+    "title": {
+      "text": "Distribution of Income by State",
+      "subtitle": "An analysis of income distribution across states in Malaysia, showcasing the range and central tendency of incomes.",
+      "anchor": "middle",
+      "fontSize": 16,
+      "subtitleFontSize": 12
+    },
     "width": 1000,  
     "height": 400, 
     "data": {
