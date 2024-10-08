@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 1000,
+  "width": 900,
   "height": 500,
   "title": {
     "text": "Proportional Symbol Map of Poverty in Malaysia",
@@ -12,6 +12,51 @@
   "projection": {
     "type": "equalEarth"
   },
+  "params": [
+    {
+      "name": "state_option",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Johor",
+          "Kedah",
+          "Kelantan",
+          "Melaka",
+          "Negeri Sembilan",
+          "Pahang",
+          "Pulau Pinang",
+          "Perak",
+          "Perlis",
+          "Selangor",
+          "Terengganu",
+          "Sabah",
+          "Sarawak",
+          "W.P. Labuan",
+          "W.P. Putrajaya"
+        ],
+        "labels": [
+          "Show All",
+          "Johor",
+          "Kedah",
+          "Kelantan",
+          "Melaka",
+          "Negeri Sembilan",
+          "Pahang",
+          "Pulau Pinang",
+          "Perak",
+          "Perlis",
+          "Selangor",
+          "Terengganu",
+          "Sabah",
+          "Sarawak",
+          "W.P. Labuan",
+          "W.P. Putrajaya"
+        ],
+        "name": "Choose state: "
+      }
+    }
+  ],
   "layer": [
     {
       "data": {
@@ -52,7 +97,7 @@
           "title": "Poverty Level",
           "scale": {
             "range": [10, 150],
-            "domain": [0, 100] 
+            "domain": [0, 100]
           }
         },
         "color": {
@@ -66,6 +111,13 @@
           "scale": {
             "scheme": "category20"
           }
+        },
+        "opacity": {
+          "condition": {
+            "test": "datum.state === state_option || state_option === null",
+            "value": 1
+          },
+          "value": 0.1
         },
         "tooltip": [
           {
@@ -82,7 +134,7 @@
             "field": "poverty",
             "type": "quantitative",
             "title": "Poverty Level",
-            "format": ".0f" 
+            "format": ".0f"
           }
         ]
       }

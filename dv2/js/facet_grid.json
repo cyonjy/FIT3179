@@ -1,60 +1,59 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "data": {
-      "url": "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/data/cleaned_household_income.csv"
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/data/cleaned_household_income.csv"
+  },
+  "title": {
+    "text": "Relationship between Expenditure and Income Inequality",
+    "subtitle": "An analysis of the relationship between expenditure and income inequality across states in Malaysia",
+    "anchor": "middle",
+    "fontSize": 16,
+    "subtitleFontSize": 12,
+    "subtitleLineHeight": 10
+  },
+  "width": 160,  
+  "height": 140, 
+  "mark": "circle",
+  "encoding": {
+    "facet": {
+      "field": "state",
+      "type": "nominal",
+      "title": "State",
+      "columns": 5
     },
-    "title": {
-      "text": "Relationship between Expenditure and Income Inequality",
-      "subtitle": "An analysis of the relationship between expenditure and income inequality across states in Malaysia.",
-      "anchor": "middle",
-      "fontSize": 16,
-      "subtitleFontSize": 12,
-      "subtitleLineHeight": 10
-    },
-    "width": 160,  
-    "height": 130, 
-    "mark": "circle",
-    "encoding": {
-      "facet": {
-        "field": "state",
-        "type": "nominal",
-        "title": "State",
-        "columns": 5
-      },
-      "x": {
-        "field": "expenditure_mean",  
-        "type": "quantitative",
-        "title": "Expenditure Mean (RM)",
-        "axis":{
-            "format": ".2f"
-        }
-      },
-      "y": {
-        "field": "gini",  
-        "type": "quantitative",
-        "title": "Gini Coefficient"
-      },
-      "color": {
-        "field": "state",  
-        "type": "nominal",
-        "title": "State",
-        "legend": null,
-        "scale": {
-          "scheme": "category10"  
-        }
-      },
-      "tooltip": [
-        { "field": "state", "type": "nominal", "title": "State" },
-        { "field": "district", "type": "nominal", "title": "District" },
-        { "field": "expenditure_mean", "type": "quantitative", "title": "Expenditure Mean (RM)" },
-        { "field": "gini", "type": "quantitative", "title": "Gini Coefficient" }
-      ]
-    },
-    "resolve": {
+    "x": {
+      "field": "expenditure_mean",  
+      "type": "quantitative",
+      "title": "Expenditure Mean (RM)",
       "axis": {
-        "x": "independent",
-        "y": "independent"
+        "format": ".2f"
       }
+    },
+    "y": {
+      "field": "gini",  
+      "type": "quantitative",
+      "title": "Gini Coefficient"
+    },
+    "color": {
+      "field": "state",  
+      "type": "nominal",
+      "title": "State",
+      "legend": null,
+      "scale": {
+        "scheme": "category10"  
+      }
+    },
+    "tooltip": [
+      { "field": "state", "type": "nominal", "title": "State" },
+      { "field": "district", "type": "nominal", "title": "District" },
+      { "field": "expenditure_mean", "type": "quantitative", "title": "Expenditure Mean (RM)" },
+      { "field": "gini", "type": "quantitative", "title": "Gini Coefficient" }
+    ]
+  },
+  "resolve": {
+    "axis": {
+      "x": "independent",
+      "y": "independent"
     }
   }
-  
+}

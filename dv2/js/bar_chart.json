@@ -52,7 +52,7 @@
   "height": 450,
   "title": {
     "text": "Total Median Income by State in Malaysia",
-    "subtitle": "A visualization of the median household income across Malaysian states, highlighting disparities and trends.",
+    "subtitle": "A visualization of the median household income across Malaysian states, highlighting disparities and trends",
     "anchor": "middle",
     "fontSize": 16,
     "subtitleFontSize": 12

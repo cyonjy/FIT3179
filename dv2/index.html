@@ -22,51 +22,53 @@
             max-width: 1380px; /* Maximum width of the title container */
             background: white;
             border-radius: 5px;
-            padding: 5px;
+            padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin: 0 auto; /* Center the container */
             text-align: center; /* Center the text */
         }
 
         .visualization-container {
-            width: 85%; /* Fixed width of the graph container */
+            flex: 1; /* Flexible width of the graph container */
             min-height: 200px; /* Minimum height to ensure visibility */
             max-height: 1000px; /* Maximum height to maintain layout */
             background: white;
             border-radius: 8px;
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-right: 20px; /* Space between graph and sidebar */
-            margin-left: 20px;
+            margin: 0 20px; /* Space between graph and sidebar */
         }
 
         .sidebar {
             width: 40%; /* Fixed width of the sidebar */
             min-height: 400px; /* Minimum height to ensure visibility */
             max-height: 600px; /* Maximum height to maintain layout */
-            height: 100%; /* Ensure the sidebar takes the full height of the visualization-wrapper */
             background: #e0e0e0; /* Light gray background for sidebar */
             border-radius: 8px;
             padding: 10px; /* Reduced padding for a smaller box */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-
         h2 {
-            text-align: center;
-            color: #333;
-        }
+        text-align: center;
+        color: #333;
+    }
+
+    p {
+        line-height: 1.6; /* Improved line spacing for readability */
+        text-align: justify; /* Justify text format */
+    }
     </style>
 </head>
 <body>
 
     <div class="title-container" id="graphContainer">
         <h2>Malaysia's Socio-Economic Landscape</h2> 
-        <p> This data visualization presents various <strong>socio-economic indicators</strong> across <strong>Malaysian states</strong> 
+        <p>This data visualization presents various <strong>socio-economic indicators</strong> across <strong>Malaysian states</strong> 
             <br>and <strong>districts</strong>, based on data from <strong>2022</strong>.
             It offers a comprehensive overview of <br><strong>household income</strong>, <strong>poverty levels</strong>, 
             the <strong>Gini index</strong>, and <strong>expenditure patterns</strong>, <br>highlighting the 
-            <strong>economic disparities</strong> and <strong>trends</strong> within the country. </p>
+            <strong>economic disparities</strong> and <strong>trends</strong> within the country.</p>
     </div>
 
     <br>
@@ -77,15 +79,28 @@
             <!-- Your graph will be rendered here -->
         </div>
         <div class="sidebar">
-            <h2>Proportional Map Info</h2>
-            <p>This is additional information for the proportional map.</p>
+            <h2>Poverty Distribution Map Insights</h2>
+            <p>Sabah has the highest poverty level among Malaysian states, while Pulau Pinang and Selangor 
+                have lower rates. This disparity arises from several economic factors: Sabah, being more 
+                rural and less developed, struggles with limited access to education and healthcare, which drives 
+                up poverty rates. 
+                <br><br>
+                In contrast, Pulau Pinang and Selangor benefit from better infrastructure and higher 
+                economic activity, contributing to their lower poverty levels.
+            </p>
         </div>
     </div>
 
     <div class="visualization-wrapper">
         <div class="sidebar">
-          <h2>Bar Chart Info</h2>
-          <p>This is additional information for the bar chart.</p>
+            <h2>Total Median Income Insights</h2>
+            <p>Sarawak boasts the highest total median income at RM145,464, while Perlis has the lowest at RM4,713. 
+                This disparity is largely due to economic development: Sarawak's diverse economy, which includes oil, 
+                gas, agriculture, and manufacturing, supports higher median incomes. 
+                <br><br>
+                In contrast, Perlis, the smallest state, relies on agriculture and has a limited industrial base, 
+                which negatively impacts its income levels.
+            </p>
         </div>
         <div class="visualization-container" id="bar_chart">
             <!-- Your graph will be rendered here -->
@@ -97,15 +112,28 @@
             <!-- Your graph will be rendered here -->
         </div>
         <div class="sidebar">
-            <h2>Box Plot Info</h2>
-            <p>This is additional information for the box plot.</p>
+            <h2>Income Distribution Insights</h2>
+            <p>Selangor leads Malaysia in mean income, reaching RM9,410, while Kelantan trails with RM3,153. 
+                Several states, including Sarawak, Sabah, Perak, Pahang, Negeri Sembilan, Kelantan, and Kedah, fall below 
+                the national average for mean income. 
+                <br><br>
+                Conversely, Johor, Melaka, Pulau Pinang, Terengganu, and Labuan exhibit 
+                medium income levels. Overall, Selangor and Putrajaya represent the highest income brackets.
+            </p>
         </div>
     </div>
 
     <div class="visualization-wrapper">
         <div class="sidebar">
-          <h2>Facet Grid Info</h2>
-          <p>This is additional information for the facet grid.</p>
+            <h2>Gini Coefficient and Expenditure Insights</h2>
+            <p>Data reveals that Sabah has a high Gini coefficient and low mean expenditure, indicating that many 
+                households struggle to meet basic needs due to inadequate social services. This high inequality suggests 
+                that a few wealthy households dominate economic resources, leaving many with limited financial freedom. 
+                <br><br>
+                In contrast, Selangor’s high mean expenditure and low Gini indicate a more equitable distribution of wealth, 
+                contributing to a better quality of life. Other states fall between these two extremes, showcasing varying levels 
+                of income inequality and expenditure patterns.
+            </p>
         </div>
         <div class="visualization-container" id="facet_grid">
             <!-- Your graph will be rendered here -->
@@ -117,40 +145,40 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
     <script type="text/javascript">
-      // Spec URLs
-      var spec1 = "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/js/proportional_map.json";  
-      var spec2 = "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/js/bar_chart.json";
-      var spec3 = "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/js/box_plot.json";
-      var spec4 = "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/js/facet_grid.json";
+        // Spec URLs
+        var spec1 = "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/js/proportional_map.json";  
+        var spec2 = "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/js/bar_chart.json";
+        var spec3 = "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/js/box_plot.json";
+        var spec4 = "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/js/facet_grid.json";
 
-      // Function to render visualizations with filtering
-      function renderVisualizations(state) {
-        // Filter data for each spec and pass the selected state
-        var filteredSpec1 = spec1 + '?state=' + state;
-        var filteredSpec2 = spec2 + '?state=' + state;
-        var filteredSpec3 = spec3 + '?state=' + state;
-        var filteredSpec4 = spec4 + '?state=' + state;
+        // Function to render visualizations with filtering
+        function renderVisualizations(state) {
+            // Filter data for each spec and pass the selected state
+            var filteredSpec1 = spec1 + '?state=' + state;
+            var filteredSpec2 = spec2 + '?state=' + state;
+            var filteredSpec3 = spec3 + '?state=' + state;
+            var filteredSpec4 = spec4 + '?state=' + state;
 
-        // Render each visualization
-        vegaEmbed('#proportional_map', filteredSpec1).then(function(result) {
-            // Visualization successfully rendered
-        }).catch(console.error);
+            // Render each visualization
+            vegaEmbed('#proportional_map', filteredSpec1).then(function(result) {
+                // Visualization successfully rendered
+            }).catch(console.error);
 
-        vegaEmbed('#bar_chart', filteredSpec2).then(function(result) {
-            // Visualization successfully rendered
-        }).catch(console.error);
+            vegaEmbed('#bar_chart', filteredSpec2).then(function(result) {
+                // Visualization successfully rendered
+            }).catch(console.error);
 
-        vegaEmbed('#box_plot', filteredSpec3).then(function(result) {
-            // Visualization successfully rendered
-        }).catch(console.error);
+            vegaEmbed('#box_plot', filteredSpec3).then(function(result) {
+                // Visualization successfully rendered
+            }).catch(console.error);
 
-        vegaEmbed('#facet_grid', filteredSpec4).then(function(result) {
-            // Visualization successfully rendered
-        }).catch(console.error);
-      }
+            vegaEmbed('#facet_grid', filteredSpec4).then(function(result) {
+                // Visualization successfully rendered
+            }).catch(console.error);
+        }
 
-      // Initial render with all states
-      renderVisualizations('all');
+        // Initial render with all states
+        renderVisualizations('all');
     </script>
 
 </body>
