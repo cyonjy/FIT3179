@@ -27,7 +27,7 @@
     }, 
     {
       "name": "expenditure_range",
-      "value": [0, 10000],
+      "value": 0,
       "bind": {
         "input": "range",
         "min": 0,
