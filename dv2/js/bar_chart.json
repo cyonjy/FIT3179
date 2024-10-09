@@ -46,6 +46,17 @@
         ],
         "name": "Choose state: "
       }
+    },
+    {
+      "name": "income_threshold",
+      "value": 0,  
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 150000,  
+        "step": 5000,
+        "name": "Income Threshold (RM): "
+      }
     }
   ],
   "width": 880,
@@ -58,61 +69,61 @@
     "subtitleFontSize": 12
   },
   "transform": [
-  {
-    "aggregate": [
-      {
-        "op": "sum",
-        "field": "income_median",
-        "as": "total_income"
-      }
-    ],
-    "groupby": ["state"]
-  },
-  {
-    "window": [
-      {
-        "op": "rank",
-        "as": "rank"
-      }
-    ],
-    "sort": [
-      {
-        "field": "total_income",
-        "order": "descending"
-      }
-    ]
-  },
-  {
-    "window": [
-      {
-        "op": "rank",
-        "as": "lowest_rank"
-      }
-    ],
-    "sort": [
-      {
-        "field": "total_income",
-        "order": "ascending"
-      }
-    ]
-  },
-  {
-    "calculate": "state_option == null && datum.rank == 1 ? 'Highest total median income: ' + datum.state + '; Amount: RM' + datum.total_income : ''",
-    "as": "highest_annotation_raw"
-  },
-  {
-    "calculate": "state_option == null && datum.lowest_rank == 1 ? 'Lowest total median income: ' + datum.state + '; Amount: RM' + datum.total_income : ''",
-    "as": "lowest_annotation_raw"
-  },
-  {
-    "calculate": "split(datum.highest_annotation_raw, ';')",
-    "as": "highest_annotation"
-  },
-  {
-    "calculate": "split(datum.lowest_annotation_raw, ';')",
-    "as": "lowest_annotation"
-  }
-],
+    {
+      "aggregate": [
+        {
+          "op": "sum",
+          "field": "income_median",
+          "as": "total_income"
+        }
+      ],
+      "groupby": ["state"]
+    },
+    {
+      "window": [
+        {
+          "op": "rank",
+          "as": "rank"
+        }
+      ],
+      "sort": [
+        {
+          "field": "total_income",
+          "order": "descending"
+        }
+      ]
+    },
+    {
+      "window": [
+        {
+          "op": "rank",
+          "as": "lowest_rank"
+        }
+      ],
+      "sort": [
+        {
+          "field": "total_income",
+          "order": "ascending"
+        }
+      ]
+    },
+    {
+      "calculate": "state_option == null && datum.rank == 1 ? 'Highest total median income: ' + datum.state + '; Amount: RM' + datum.total_income : ''",
+      "as": "highest_annotation_raw"
+    },
+    {
+      "calculate": "state_option == null && datum.lowest_rank == 1 ? 'Lowest total median income: ' + datum.state + '; Amount: RM' + datum.total_income : ''",
+      "as": "lowest_annotation_raw"
+    },
+    {
+      "calculate": "split(datum.highest_annotation_raw, ';')",
+      "as": "highest_annotation"
+    },
+    {
+      "calculate": "split(datum.lowest_annotation_raw, ';')",
+      "as": "lowest_annotation"
+    }
+  ],
   "layer": [
     {
       "mark": {
@@ -138,7 +149,6 @@
             "grid": false
           }
         },
-        
         "tooltip": [
           { "field": "state", "type": "nominal", "title": "State" },
           { "field": "total_income", "type": "quantitative", "title": "Total Median Income (RM)", "format": ".2f" }
@@ -147,6 +157,9 @@
       "transform": [
         {
           "filter": "state_option == null || datum.state == state_option"
+        },
+        {
+          "filter": "datum.total_income >= income_threshold"
         }
       ]
     },

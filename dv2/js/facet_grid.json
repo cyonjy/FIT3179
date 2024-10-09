@@ -11,8 +11,40 @@
     "subtitleFontSize": 12,
     "subtitleLineHeight": 10
   },
-  "width": 150,  
-  "height": 140, 
+  "width": 150,
+  "height": 140,
+  "params": [
+    {
+      "name": "gini_range",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 0.5,
+        "step": 0.01,
+        "name": "Gini Coefficient Range: "
+      }
+    }, 
+    {
+      "name": "expenditure_range",
+      "value": [0, 10000],
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 10000,
+        "step": 100,
+        "name": "Expenditure Mean Range (RM): "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "datum.gini >= gini_range"
+    },
+    {
+      "filter": "datum.expenditure_mean >= expenditure_range"
+    }
+  ],
   "mark": "circle",
   "encoding": {
     "facet": {
@@ -22,7 +54,7 @@
       "columns": 5
     },
     "x": {
-      "field": "expenditure_mean",  
+      "field": "expenditure_mean",
       "type": "quantitative",
       "title": "Expenditure Mean (RM)",
       "axis": {
@@ -30,17 +62,17 @@
       }
     },
     "y": {
-      "field": "gini",  
+      "field": "gini",
       "type": "quantitative",
       "title": "Gini Coefficient"
     },
     "color": {
-      "field": "state",  
+      "field": "state",
       "type": "nominal",
       "title": "State",
       "legend": null,
       "scale": {
-        "scheme": "category10"  
+        "scheme": "category10"
       }
     },
     "tooltip": [
