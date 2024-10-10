@@ -1,0 +1,118 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Bubble plot showing the relationship between expenditure mean and Gini index.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/data/cleaned_household_income.csv",
+    "format": {"type": "csv"}
+  },
+  "mark": "circle",
+  "params": [
+    {
+      "name": "state_option",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Johor",
+          "Kedah",
+          "Kelantan",
+          "Melaka",
+          "Negeri Sembilan",
+          "Pahang",
+          "Pulau Pinang",
+          "Perak",
+          "Perlis",
+          "Selangor",
+          "Terengganu",
+          "Sabah",
+          "Sarawak",
+          "W.P. Labuan",
+          "W.P. Putrajaya"
+        ],
+        "labels": [
+          "Show All",
+          "Johor",
+          "Kedah",
+          "Kelantan",
+          "Melaka",
+          "Negeri Sembilan",
+          "Pahang",
+          "Pulau Pinang",
+          "Perak",
+          "Perlis",
+          "Selangor",
+          "Terengganu",
+          "Sabah",
+          "Sarawak",
+          "W.P. Labuan",
+          "W.P. Putrajaya"
+        ],
+        "name": "Choose state: "
+      }
+    },
+    {
+        "name": "gini_range",
+        "value": 0.2,
+        "bind": {
+          "input": "range",
+          "min": 0.2,
+          "max": 0.5,
+          "step": 0.01,
+          "name": "Gini Coefficient Range: "
+        }
+      }, 
+      {
+        "name": "expenditure_range",
+        "value": 2000,
+        "bind": {
+          "input": "range",
+          "min": 0,
+          "max": 10000,
+          "step": 100,
+          "name": "Expenditure Mean Range (RM): "
+        }
+      }
+  ],
+  "transform": [
+    {
+      "filter": "state_option == null || datum.state == state_option"
+    },
+    {
+        "filter": "datum.gini >= gini_range"
+      },
+      {
+        "filter": "datum.expenditure_mean >= expenditure_range"
+      }
+  ],
+  "encoding": {
+    "x": {
+      "field": "expenditure_mean",
+      "type": "quantitative",
+      "title": "Expenditure Mean (RM)",
+        "scale": {
+            "zero": false
+        }
+    },
+    "y": {
+      "field": "gini",
+      "type": "quantitative",
+      "title": "Gini Index",
+      "scale": {
+        "zero": false
+      }
+    },
+    "color": {
+      "field": "state",
+      "type": "nominal",
+      "title": "State"
+    },
+    "tooltip": [
+      {"field": "state", "type": "nominal", "title": "State"},
+      {"field": "district", "type": "nominal", "title": "District"},
+      {"field": "expenditure_mean", "type": "quantitative", "title": "Expenditure Mean (RM)", "format": ".2f"},
+      {"field": "gini", "type": "quantitative", "title": "Gini Index", "format": ".2f"}
+    ]
+  },
+  "width": 880,
+  "height": 450
+}

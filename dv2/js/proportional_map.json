@@ -97,7 +97,7 @@
           "type": "quantitative",
           "title": "Poverty Level",
           "scale": {
-            "range": [10, 120],
+            "range": [10, 140],
             "domain": [0, 50]
           }
         },
