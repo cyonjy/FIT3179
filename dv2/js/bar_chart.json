@@ -108,11 +108,11 @@
       ]
     },
     {
-      "calculate": "state_option == null && datum.rank == 1 ? 'Highest total median income: ' + datum.state + '; Amount: RM' + datum.total_income : ''",
+      "calculate": "state_option == null && datum.rank == 1 ? 'Sarawak has the highest median income; due to its diverse economy ; including oil and gas.' : ''",
       "as": "highest_annotation_raw"
     },
     {
-      "calculate": "state_option == null && datum.lowest_rank == 1 ? 'Lowest total median income: ' + datum.state + '; Amount: RM' + datum.total_income : ''",
+      "calculate": "state_option == null && datum.lowest_rank == 1 ? 'Perlis has the lowest median income; due to due to its reliance on agriculture; and limited industrial development.' : ''",
       "as": "lowest_annotation_raw"
     },
     {
@@ -168,7 +168,7 @@
         "type": "text",
         "align": "center",
         "baseline": "middle",
-        "dy": -10,
+        "dy": -30,
         "fontSize": 10,
         "color": "darkred"
       },
@@ -183,7 +183,7 @@
         "type": "text",
         "align": "center",
         "baseline": "middle",
-        "dy": -10,
+        "dy": -30,
         "fontSize": 10,
         "color": "blue"
       },
