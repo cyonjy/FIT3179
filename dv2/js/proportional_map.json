@@ -102,7 +102,7 @@
           }
         },
         "color": {
-          "field": "state",
+          "field": "State",
           "type": "nominal",
           "title": "State",
           "legend": {
@@ -115,17 +115,15 @@
         },
         "opacity": {
           "condition": {
-            "test": "state_option === null || datum.state === state_option",
+            "test": "state_option === null || datum.State === state_option",
             "value": 1
           },
           "value": 0.1
         },
         "tooltip": [
           {
-            "field": "state",
-            "type": "nominal",
-            "title": "State"
-          },
+            "field": "State",
+            "type": "nominal"          },
           {
             "field": "district",
             "type": "nominal",
@@ -143,7 +141,7 @@
     {
       "data": {
         "values": [
-          {"state": "Sabah", "longitude": 117.3, "latitude": 7.6, "label": "Sabah has the highest poverty level"}
+          {"State": "Sabah", "longitude": 117.3, "latitude": 7.6, "label": "Sabah has the highest poverty level"}
         ]
       },
       "mark": {

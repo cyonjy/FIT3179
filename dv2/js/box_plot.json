@@ -15,11 +15,11 @@
   "mark": "boxplot",
   "encoding": {
     "x": {
-      "field": "state",
+      "field": "State",
       "type": "nominal"
     },
     "color": {
-      "field": "state",
+      "field": "State",
       "type": "nominal",
       "legend": null,
       "scale": {
