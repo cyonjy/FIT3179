@@ -15,15 +15,15 @@
   "mark": "boxplot",
   "encoding": {
     "x": {
-      "field": "State",
+      "field": "state",
       "type": "nominal"
-    },
+        },
     "color": {
-      "field": "State",
+      "field": "state",
       "type": "nominal",
       "legend": null,
       "scale": {
-        "scheme": "category20"  
+        "scheme": "category10"  
       }
     },
     "y": {
@@ -38,9 +38,8 @@
       }
     },
     "tooltip": {
-          "field": "income_mean",
-          "type": "quantitative",
-          "title": "Mean Income (RM)"
-    }
+      "field": "income_mean",
+      "type": "quantitative"
+    } 
   }
 }

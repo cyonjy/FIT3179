@@ -74,7 +74,7 @@
     ],
     "transform": [
       {
-        "filter": "state_option == null || datum.State == state_option"
+        "filter": "state_option == null || datum.state == state_option"
       },
       {
         "filter": "datum.gini >= gini_range"
@@ -107,11 +107,12 @@
             }
           },
           "color": {
-            "field": "State",
-            "type": "nominal"
-                    },
+            "field": "state",
+            "type": "nominal",
+            "title": "State"
+          },
           "tooltip": [
-            { "field": "State", "type": "nominal" },
+            { "field": "state", "type": "nominal", "title": "State" },
             { "field": "district", "type": "nominal", "title": "District" },
             { "field": "expenditure_mean", "type": "quantitative", "title": "Expenditure Mean (RM)", "format": ".2f" },
             { "field": "gini", "type": "quantitative", "title": "Gini Index", "format": ".2f" }
@@ -138,7 +139,7 @@
             "type": "quantitative"
           },
           "text": {
-            "field": "State"
+            "field": "state"
           }
         }
       }

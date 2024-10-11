@@ -1,4 +1,4 @@
-"date","State","district","income_mean","income_median","expenditure_mean","gini","poverty","latitude","longitude"
+"date","state","district","income_mean","income_median","expenditure_mean","gini","poverty","latitude","longitude"
 "2022-01-01","Johor","Batu Pahat",7419,6347,4570,0.3383,5.1,1.933333,103
 "2022-01-01","Johor","Johor Bahru",9869,8232,6139,0.3585,3.7,1.503555,103.7495586
 "2022-01-01","Johor","Kluang",6461,5204,4399,0.35367,7.2,2.0323472,103.3190766
