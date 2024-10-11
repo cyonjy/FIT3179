@@ -19,7 +19,7 @@
       "select": {
         "type": "point",
         "on": "click",
-        "fields": ["State"]
+        "fields": ["state"]
       },
       "bind": "legend"
     },
@@ -53,7 +53,7 @@
           "title": "Mean Income (RM)"
         },
         "color": {
-          "field": "State",
+          "field": "state",
           "type": "nominal",
           "scale": { "scheme": "category20" }
         },
@@ -65,7 +65,7 @@
           "value": 0.1
         },
         "tooltip": [
-          { "field": "State", "type": "nominal" },
+          { "field": "state", "type": "nominal", "title": "State" },
           { "field": "date", "type": "temporal", "title": "Year" },
           { "field": "income_mean", "type": "quantitative", "title": "Mean Income (RM)" }
         ]
