@@ -4,6 +4,9 @@ body {
     background-color: #f0f0f0; /* Light gray background */
     margin: 0;
     padding: 20px; /* Add padding to body */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Title styling */
@@ -29,11 +32,47 @@ h2 {
     right: 100px; /* Space from the right */
 }
 
-/* Make the symbol map responsive */
+/* Visualization wrapper */
+.visualization-wrapper {
+    display: flex;
+    margin-bottom: 20px;
+    max-width: 1200px; /* Set a max-width for the entire row */
+    width: 100%; /* Ensure it scales with the page */
+}
+
+/* Visualization container and sidebar styling */
+.visualization-container, .sidebar {
+    flex: 1;
+    min-height: 200px;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Graph specific styling */
+.visualization-container {
+    background-color: white; /* Graph container background */
+    margin-right: 20px; /* Space between elements */
+}
+
+/* Sidebar specific styling */
+.sidebar {
+    background-color: #f6ecfa; /* Light purple sidebar */
+    margin-left: 20px; /* Space between elements */
+}
+
+/* Flip layout for even rows */
+.visualization-wrapper:nth-child(even) {
+    flex-direction: row-reverse; /* Flip layout for even rows */
+}
+
+/* Responsive design for small screens */
 @media (max-width: 600px) {
-    #symbol_map {
-        width: 90%; /* Full width on smaller screens */
-        left: 5%; /* Align it slightly from the left */
-        right: 5%; /* Align it slightly from the right */
+    .visualization-wrapper {
+        flex-direction: column; /* Stack elements vertically on small screens */
+    }
+    
+    .visualization-container, .sidebar {
+        margin: 10px 0; /* Adjust margins for small screens */
     }
 }
