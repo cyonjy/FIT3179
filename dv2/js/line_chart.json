@@ -5,6 +5,13 @@
     "url": "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/data/hh_income_state.csv",
     "format": { "type": "csv" }
   },
+  "title": {
+    "text": "Line Chart of Mean income Over Time",
+    "subtitle": "A visualization of mean income over time for different states in Malaysia",
+    "anchor": "middle",
+    "fontSize": 16,
+    "subtitleFontSize": 12
+  },
   "params": [
     {
       "name": "sel_state",
@@ -15,40 +22,76 @@
         "fields": ["state"]
       },
       "bind": "legend"
+    },
+    {
+      "name": "year_brush",
+      "select": {
+        "type": "interval",
+        "encodings": ["x"]
+      }
     }
   ],
-  "mark": "line",
-  "encoding": {
-      "x": {
-      "field": "date",
-      "type": "temporal",
-      "title": "Date",
-      "axis": { "grid": false }
+  "vconcat": [
+    {
+      "width": 880,
+      "height": 400,
+      "mark": "line",
+      "encoding": {
+        "x": {
+          "field": "date",
+          "type": "temporal",
+          "scale": {
+            "domain": {
+              "param": "year_brush"
+            }
+          },
+          "axis": { "title": "Year", "grid": false }
+        },
+        "y": {
+          "field": "income_mean",
+          "type": "quantitative",
+          "title": "Mean Income (RM)"
+        },
+        "color": {
+          "field": "state",
+          "type": "nominal",
+          "title": "State",
+          "scale": { "scheme": "category20" }
+        },
+        "opacity": {
+          "condition": {
+            "param": "sel_state",
+            "value": 1.0
+          },
+          "value": 0.1
+        },
+        "tooltip": [
+          { "field": "state", "type": "nominal", "title": "State" },
+          { "field": "date", "type": "temporal", "title": "Year" },
+          { "field": "income_mean", "type": "quantitative", "title": "Mean Income (RM)" }
+        ]
+      }
     },
-    "y": {
-      "field": "income_mean",
-      "type": "quantitative",
-      "title": "Income Mean (RM)"
-    },
-    "color": {
-      "field": "state",
-      "type": "nominal",
-      "title": "State",
-      "scale": { "scheme": "category20" }
-    },
-    "opacity": {
-      "condition": {
-        "param": "sel_state",
-        "value": 1.0
-      },
-      "value": 0.1
-    },
-    "tooltip": [
-      { "field": "state", "type": "nominal", "title": "State" },
-      { "field": "date", "type": "temporal", "title": "Date" },
-      { "field": "income_mean", "type": "quantitative", "title": "Income Mean (RM)" }
-    ]
-  },
-  "width": 800,
-  "height": 400
+    {
+      "width": 800,
+      "height": 60,
+      "mark": "area",
+      "encoding": {
+        "x": {
+          "field": "date",
+          "type": "temporal",
+          "axis": { "title": "Year" }
+        },
+        "y": {
+          "field": "income_mean",
+          "type": "quantitative",
+          "title": "Mean Income (RM)",
+          "axis": {
+            "tickCount": 3,
+            "grid": false
+          }
+        }
+      }
+    }
+  ]
 }

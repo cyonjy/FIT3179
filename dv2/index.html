@@ -161,7 +161,25 @@
             <p>Although <strong>Putrajaya</strong> has the highest expenditure, its Gini index remains in the medium range, suggesting that higher spending does not always equate to lower inequality.</p>
 
         </div>
-        <div class="visualization-container" id="facet_grid">
+        <div class="visualization-container" id="scatter_plot">
+        </div>
+    </div>
+
+    <div class="visualization-wrapper">
+        <div class="visualization-container" id="line_chart">
+        </div>
+        <div class="sidebar">
+            <h2>Income across States Over Years Insights</h2>
+            <p>
+                The line chart shows Malaysia's <strong>mean income</strong> evolution across different <strong>states</strong> from <strong>1972 to 2022</strong>. 
+                While all states experienced growth, there's a clear income disparity between <strong>federal territories</strong> 
+                (like <strong>Kuala Lumpur</strong> and <strong>Putrajaya</strong>) and other states. Growth was slow until <strong>1990</strong>, 
+                accelerated after <strong>2000</strong>, and saw significant volatility post-<strong>2015</strong>, including a notable dip 
+                during the <strong>2020 COVID-19 pandemic</strong>. Federal territories consistently lead with mean incomes above 
+                <strong>RM 12,000</strong>, while most states remain between <strong>RM 4,000 to RM 8,000</strong>, highlighting 
+                persistent regional economic inequalities.
+              
+            </p>
         </div>
     </div>
 
@@ -186,6 +204,7 @@
         var spec2 = "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/js/bar_chart.json";
         var spec3 = "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/js/box_plot.json";
         var spec4 = "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/js/scatter_plot.json";
+        var spec5 = "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/js/line_chart.json";
 
         // Function to render visualizations with filtering
         function renderVisualizations(state) {
@@ -194,6 +213,7 @@
             var filteredSpec2 = spec2 + '?state=' + state;
             var filteredSpec3 = spec3 + '?state=' + state;
             var filteredSpec4 = spec4 + '?state=' + state;
+            var filteredSpec5 = spec5 + '?state=' + state;
 
             // Render each visualization
             vegaEmbed('#proportional_map', filteredSpec1).then(function(result) {
@@ -208,7 +228,11 @@
                 // Visualization successfully rendered
             }).catch(console.error);
 
-            vegaEmbed('#facet_grid', filteredSpec4).then(function(result) {
+            vegaEmbed('#scatter_plot', filteredSpec4).then(function(result) {
+                // Visualization successfully rendered
+            }).catch(console.error);
+
+            vegaEmbed('#line_chart', filteredSpec5).then(function(result) {
                 // Visualization successfully rendered
             }).catch(console.error);
         }
