@@ -1,43 +1,46 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": {
-      "text": "Distribution of Income by State",
-      "subtitle": "An analysis of income distribution across states in Malaysia, showcasing the range and central tendency of incomes",
-      "anchor": "middle",
-      "fontSize": 16,
-      "subtitleFontSize": 12
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Distribution of Income by State",
+    "subtitle": "An analysis of income distribution across states in Malaysia, showcasing the range and central tendency of incomes",
+    "anchor": "middle",
+    "fontSize": 16,
+    "subtitleFontSize": 12
+  },
+  "width": 880,  
+  "height": 400, 
+  "data": {
+    "url": "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/data/cleaned_household_income.csv"
+  },
+  "mark": "boxplot",
+  "encoding": {
+    "x": {
+      "field": "state",
+      "type": "nominal"
     },
-    "width": 880,  
-    "height": 400, 
-    "data": {
-      "url": "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/data/cleaned_household_income.csv"
-    },
-    "mark": "boxplot",
-    "encoding": {
-      "x": {
-        "field": "state",
-        "type": "nominal",
-        "title": "State"
-      },
-      "color": {
-        "field": "state",
-        "type": "nominal",
-        "legend": null,
-        "scale": {
-          "scheme": "category10"  
-        }
-      },
-      "y": {
-        "field": "income_mean",
-        "type": "quantitative",
-        "title": "Mean Income (RM)",
-        "scale": {
-          "zero": false
-        },
-        "axis": {
-          "format": ".2f"  
-        }
+    "color": {
+      "field": "state",
+      "type": "nominal",
+      "legend": null,
+      "scale": {
+        "scheme": "category20"  
       }
+    },
+    "y": {
+      "field": "income_mean",
+      "type": "quantitative",
+      "title": "Mean Income (RM)",
+      "scale": {
+        "zero": false
+      },
+      "axis": {
+        "format": ".2f"  
+      }
+    },
+    "tooltip": {
+          "field": "income_mean",
+          "type": "quantitative",
+          "title": "Mean Income (RM)"
     }
   }
-  
+}
