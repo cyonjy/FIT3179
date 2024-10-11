@@ -15,7 +15,7 @@
   "params": [
     {
       "name": "state_option",
-      "value": null, 
+      "value": null,
       "bind": {
         "input": "select",
         "options": [
@@ -143,9 +143,20 @@
     {
       "data": {
         "values": [
-          {"state": "Sabah", "longitude": 117.3, "latitude": 7.6, "label": "Sabah has the highest poverty level"}
+          {
+            "state": "Sabah",
+            "longitude": 114.5,
+            "latitude": 7.0,
+            "label": "Sabah has highest poverty level; due to its geographic isolation; and uneven distribution of resources."
+          }
         ]
       },
+      "transform": [
+        {
+          "calculate": "split(datum.label, ';')",  
+          "as": "sabah_annotation" 
+        }
+      ],
       "mark": {
         "type": "text",
         "fontSize": 11,
@@ -159,7 +170,7 @@
           "field": "latitude"
         },
         "text": {
-          "field": "label"
+          "field": "sabah_annotation"  
         }
       }
     }
