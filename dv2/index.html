@@ -83,10 +83,19 @@
             color: #555; /* Darker text for better readability */
         }
 
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
         
     </style>
 </head>
 <body>  
+    <div class="container">
         <div class="title-container" id="graphContainer">
             <h2>Malaysia's Socio-Economic Landscape</h2> 
             <p>This data visualization presents various <strong>socio-economic indicators</strong> across <strong>Malaysian states</strong> 
@@ -195,6 +204,7 @@
             </p>
         </div>
     </div>
+    
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
