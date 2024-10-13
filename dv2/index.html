@@ -46,30 +46,33 @@
         }
 
         .visualization-container {
-            flex: 1; /* Flexible width of the graph container */
             min-height: 200px; /* Minimum height to ensure visibility */
             max-height: 1000px; /* Maximum height to maintain layout */
             background: rgba(255, 255, 255, 0.984); /* Slightly transparent white */
             border-radius: 8px;
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin: 0 20px; /* Space between graph and sidebar */
-            transition: transform 0.3s; /* Animation for hover effect */
+            margin: 0 15px; /* Space between graph and sidebar */
         }
 
-        .sidebar {
-            width: 50%; /* Fixed width of the sidebar */
-            min-height: 400px; /* Minimum height to ensure visibility */
-            max-height: 750px; /* Maximum height to maintain layout */
+        .sidebarleft, .sidebarright {
+            flex-basis: 30%; /* Adjust width as needed */
+            padding: 10px;
+            box-sizing: border-box;
             background: rgba(246, 236, 250, 0.9); /* Light gray background with transparency */
             border-radius: 8px;
-            padding: 10px; /* Reduced padding for a smaller box */
+            min-height: 400px; /* Minimum height to ensure visibility */
+            max-height: 750px; /* Maximum height to maintain layout */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s; /* Animation for hover effect */
         }
 
-        .sidebar:hover {
-            transform: scale(1.02); /* Scale effect on hover */
+        .sidebarleft {
+            margin-left: 15px; 
+        }
+
+        .sidebarright {
+            margin-right: 15px; 
         }
 
         h2 {
@@ -109,7 +112,7 @@
         <div class="visualization-wrapper">
             <div class="visualization-container" id="proportional_map">
             </div>
-            <div class="sidebar">
+            <div class="sidebarright">
                 <h2>Poverty Distribution Map Insights</h2>
                 <p>
                     <strong>Sabah</strong> has the highest poverty level among Malaysian states, while <strong>Pulau Pinang</strong> 
@@ -125,7 +128,7 @@
         </div>
     
         <div class="visualization-wrapper">
-            <div class="sidebar">
+            <div class="sidebarleft">
                 <h2>Total Median Income Insights</h2>
                 <p>
                     <strong>Sarawak</strong> boasts the highest total median income at <strong>RM145,464</strong>, 
@@ -144,7 +147,7 @@
         <div class="visualization-wrapper">
             <div class="visualization-container" id="box_plot">
             </div>
-            <div class="sidebar">
+            <div class="sidebarright">
                 <h2>Income Distribution Insights</h2>
                 <p><strong>Selangor</strong> leads Malaysia in mean income, reaching 
                     <strong>RM9,410</strong>, while <strong>Kelantan</strong> trails with <strong>RM3,153</strong>. 
@@ -160,7 +163,7 @@
         </div>
     
         <div class="visualization-wrapper">
-            <div class="sidebar">
+            <div class="sidebarleft">
                 <h2>Gini Coefficient and Expenditure Insights</h2>
                 <p><strong>Pahang</strong> has the lowest Gini index and expenditure, showing equitable income distribution.</p>
     
@@ -178,7 +181,7 @@
         <div class="visualization-wrapper">
             <div class="visualization-container" id="line_chart">
             </div>
-            <div class="sidebar">
+            <div class="sidebarright">
                 <h2>Income across States Over Years Insights</h2>
                 <p>The line chart illustrates Malaysia's <strong>mean income growth</strong> across states from 
                     <strong>1976 to 2022</strong>. <strong>Federal territories</strong> like <strong>Kuala Lumpur</strong> 
