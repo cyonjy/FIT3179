@@ -5,6 +5,13 @@
       "url": "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/data/cleaned_household_income.csv",
       "format": { "type": "csv" }
     },
+    "title": {
+    "text": "Expenditure Mean vs Gini Index",
+    "subtitle": "A visualization of expenditure levels and income inequality across different states and districts in Malaysia",
+    "anchor": "middle",
+    "fontSize": 16,
+    "subtitleFontSize": 12
+  },
     "params": [
       {
         "name": "state_option",
