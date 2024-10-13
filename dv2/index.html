@@ -86,113 +86,112 @@
         
     </style>
 </head>
-<body>
-
-    <div class="title-container" id="graphContainer">
-        <h2>Malaysia's Socio-Economic Landscape</h2> 
-        <p>This data visualization presents various <strong>socio-economic indicators</strong> across <strong>Malaysian states</strong> 
-            <br>and <strong>districts</strong>, based on data from <strong>2022</strong>.
-            It offers a comprehensive overview of <br><strong>household income</strong>, <strong>poverty levels</strong>, 
-            the <strong>Gini index</strong>, and <strong>expenditure patterns</strong>, <br>highlighting the 
-            <strong>economic disparities</strong> and <strong>trends</strong> within the country.</p>
-    </div>
-
-    <!-- Wrapper for each visualization and sidebar -->
-    <div class="visualization-wrapper">
-        <div class="visualization-container" id="proportional_map">
+<body>  
+        <div class="title-container" id="graphContainer">
+            <h2>Malaysia's Socio-Economic Landscape</h2> 
+            <p>This data visualization presents various <strong>socio-economic indicators</strong> across <strong>Malaysian states</strong> 
+                <br>and <strong>districts</strong>, based on data from <strong>2022</strong>.
+                It offers a comprehensive overview of <br><strong>household income</strong>, <strong>poverty levels</strong>, 
+                the <strong>Gini index</strong>, and <strong>expenditure patterns</strong>, <br>highlighting the 
+                <strong>economic disparities</strong> and <strong>trends</strong> within the country.</p>
         </div>
-        <div class="sidebar">
-            <h2>Poverty Distribution Map Insights</h2>
-            <p>
-                <strong>Sabah</strong> has the highest poverty level among Malaysian states, while <strong>Pulau Pinang</strong> 
-                and <strong>Selangor</strong> have lower rates. This disparity arises from several economic factors: 
-                <strong>Sabah</strong>, being more rural and less developed, struggles with limited access to education and 
-                healthcare, which drives up poverty rates. 
-                <br><br>
-                In contrast, <strong>Pulau Pinang</strong> and <strong>Selangor</strong> benefit from better 
-                infrastructure and higher economic activity, contributing to their lower poverty levels.
-            </p>
-            
+
+        <!-- Wrapper for each visualization and sidebar -->
+        <div class="visualization-wrapper">
+            <div class="visualization-container" id="proportional_map">
+            </div>
+            <div class="sidebar">
+                <h2>Poverty Distribution Map Insights</h2>
+                <p>
+                    <strong>Sabah</strong> has the highest poverty level among Malaysian states, while <strong>Pulau Pinang</strong> 
+                    and <strong>Selangor</strong> have lower rates. This disparity arises from several economic factors: 
+                    <strong>Sabah</strong>, being more rural and less developed, struggles with limited access to education and 
+                    healthcare, which drives up poverty rates. 
+                    <br><br>
+                    In contrast, <strong>Pulau Pinang</strong> and <strong>Selangor</strong> benefit from better 
+                    infrastructure and higher economic activity, contributing to their lower poverty levels.
+                </p>
+                
+            </div>
         </div>
-    </div>
-
-    <div class="visualization-wrapper">
-        <div class="sidebar">
-            <h2>Total Median Income Insights</h2>
-            <p>
-                <strong>Sarawak</strong> boasts the highest total median income at <strong>RM145,464</strong>, 
-                while <strong>Perlis</strong> has the lowest at <strong>RM4,713</strong>. This disparity is largely due to 
-                economic development: <strong>Sarawak's</strong> diverse economy, which includes oil, gas, agriculture, and 
-                manufacturing, supports higher median incomes. 
-                <br><br>
-                In contrast, <strong>Perlis</strong>, the smallest state, relies on agriculture and has a limited industrial base, 
-                which negatively impacts its income levels.
-            </p>
-        </div>
-        <div class="visualization-container" id="bar_chart">
-        </div>
-    </div>
-
-    <div class="visualization-wrapper">
-        <div class="visualization-container" id="box_plot">
-        </div>
-        <div class="sidebar">
-            <h2>Income Distribution Insights</h2>
-            <p><strong>Selangor</strong> leads Malaysia in mean income, reaching 
-                <strong>RM9,410</strong>, while <strong>Kelantan</strong> trails with <strong>RM3,153</strong>. 
-                Several states, including <strong>Sarawak</strong>, <strong>Sabah</strong>, <strong>Perak</strong>, 
-                <strong>Pahang</strong>, <strong>Negeri Sembilan</strong>, <strong>Kelantan</strong>, and <strong>Kedah</strong>, 
-                fall below the national average for mean income. 
-                <br><br>
-                Conversely, <strong>Johor</strong>, <strong>Melaka</strong>, <strong>Pulau Pinang</strong>, 
-                <strong>Terengganu</strong>, and <strong>Labuan</strong> exhibit medium income levels. Overall, 
-                <strong>Selangor</strong> and <strong>Putrajaya</strong> represent the highest income brackets.
-            </p>
-        </div>
-    </div>
-
-    <div class="visualization-wrapper">
-        <div class="sidebar">
-            <h2>Gini Coefficient and Expenditure Insights</h2>
-            <p><strong>Pahang</strong> has the lowest Gini index and expenditure, showing equitable income distribution.</p>
-
-            <p><strong>Kelantan</strong>, <strong>Sabah</strong>, <strong>Sarawak</strong>, <strong>Perak</strong>, <strong>Negeri Sembilan</strong>, <strong>Kedah</strong>, and <strong>Perlis</strong> have medium expenditure and Gini, indicating moderate inequality.</p>
-
-            <p><strong>Terengganu</strong> and <strong>Selangor</strong> have higher expenditures with lower Gini indices, reflecting better income distribution.</p>
-
-            <p>Although <strong>Putrajaya</strong> has the highest expenditure, its Gini index remains in the medium range, suggesting that higher spending does not always equate to lower inequality.</p>
-
-        </div>
-        <div class="visualization-container" id="scatter_plot">
-        </div>
-    </div>
-
-    <div class="visualization-wrapper">
-        <div class="visualization-container" id="line_chart">
-        </div>
-        <div class="sidebar">
-            <h2>Income across States Over Years Insights</h2>
-            <p>The line chart illustrates Malaysia's <strong>mean income growth</strong> across states from 
-                <strong>1972 to 2022</strong>. <strong>Federal territories</strong> like <strong>Kuala Lumpur</strong> 
-                and <strong>Putrajaya</strong> consistently show <strong>higher incomes</strong> compared to other states, 
-                with incomes above <strong>RM 12,000</strong>. Growth was <strong>slow until 1990</strong>, accelerated after 
-                <strong>2000</strong>, and became <strong>volatile after 2015</strong>, including a decline during the <strong>2020 
-                    COVID-19 pandemic</strong>. Most states' incomes range between <strong>RM 4,000</strong> and 
-                    <strong>RM 8,000</strong>, highlighting ongoing <strong>regional disparities</strong>.</p>
-
-        </div>
-    </div>
-
-    <div style="text-align: center; color: #000000;">
-        <p style="font-size: 14px; margin: 5px 0;">Created and Designed by Cherylyn Yong</p>
-        <p style="font-size: 14px; margin: 5px 0;">
-            Data Source: 
-            <a href="https://open.dosm.gov.my/data-catalogue/hies_district" target="_blank" style="color: #007bff; text-decoration: none;">
-                Department of Statistics Malaysia (DOSM)
-            </a>
-        </p>
-    </div>
     
+        <div class="visualization-wrapper">
+            <div class="sidebar">
+                <h2>Total Median Income Insights</h2>
+                <p>
+                    <strong>Sarawak</strong> boasts the highest total median income at <strong>RM145,464</strong>, 
+                    while <strong>Perlis</strong> has the lowest at <strong>RM4,713</strong>. This disparity is largely due to 
+                    economic development: <strong>Sarawak's</strong> diverse economy, which includes oil, gas, agriculture, and 
+                    manufacturing, supports higher median incomes. 
+                    <br><br>
+                    In contrast, <strong>Perlis</strong>, the smallest state, relies on agriculture and has a limited industrial base, 
+                    which negatively impacts its income levels.
+                </p>
+            </div>
+            <div class="visualization-container" id="bar_chart">
+            </div>
+        </div>
+    
+        <div class="visualization-wrapper">
+            <div class="visualization-container" id="box_plot">
+            </div>
+            <div class="sidebar">
+                <h2>Income Distribution Insights</h2>
+                <p><strong>Selangor</strong> leads Malaysia in mean income, reaching 
+                    <strong>RM9,410</strong>, while <strong>Kelantan</strong> trails with <strong>RM3,153</strong>. 
+                    Several states, including <strong>Sarawak</strong>, <strong>Sabah</strong>, <strong>Perak</strong>, 
+                    <strong>Pahang</strong>, <strong>Negeri Sembilan</strong>, <strong>Kelantan</strong>, and <strong>Kedah</strong>, 
+                    fall below the national average for mean income. 
+                    <br><br>
+                    Conversely, <strong>Johor</strong>, <strong>Melaka</strong>, <strong>Pulau Pinang</strong>, 
+                    <strong>Terengganu</strong>, and <strong>Labuan</strong> exhibit medium income levels. Overall, 
+                    <strong>Selangor</strong> and <strong>Putrajaya</strong> represent the highest income brackets.
+                </p>
+            </div>
+        </div>
+    
+        <div class="visualization-wrapper">
+            <div class="sidebar">
+                <h2>Gini Coefficient and Expenditure Insights</h2>
+                <p><strong>Pahang</strong> has the lowest Gini index and expenditure, showing equitable income distribution.</p>
+    
+                <p><strong>Kelantan</strong>, <strong>Sabah</strong>, <strong>Sarawak</strong>, <strong>Perak</strong>, <strong>Negeri Sembilan</strong>, <strong>Kedah</strong>, and <strong>Perlis</strong> have medium expenditure and Gini, indicating moderate inequality.</p>
+    
+                <p><strong>Terengganu</strong> and <strong>Selangor</strong> have higher expenditures with lower Gini indices, reflecting better income distribution.</p>
+    
+                <p>Although <strong>Putrajaya</strong> has the highest expenditure, its Gini index remains in the medium range, suggesting that higher spending does not always equate to lower inequality.</p>
+    
+            </div>
+            <div class="visualization-container" id="scatter_plot">
+            </div>
+        </div>
+    
+        <div class="visualization-wrapper">
+            <div class="visualization-container" id="line_chart">
+            </div>
+            <div class="sidebar">
+                <h2>Income across States Over Years Insights</h2>
+                <p>The line chart illustrates Malaysia's <strong>mean income growth</strong> across states from 
+                    <strong>1972 to 2022</strong>. <strong>Federal territories</strong> like <strong>Kuala Lumpur</strong> 
+                    and <strong>Putrajaya</strong> consistently show <strong>higher incomes</strong> compared to other states, 
+                    with incomes above <strong>RM 12,000</strong>. Growth was <strong>slow until 1990</strong>, accelerated after 
+                    <strong>2000</strong>, and became <strong>volatile after 2015</strong>, including a decline during the <strong>2020 
+                        COVID-19 pandemic</strong>. Most states' incomes range between <strong>RM 4,000</strong> and 
+                        <strong>RM 8,000</strong>, highlighting ongoing <strong>regional disparities</strong>.</p>
+    
+            </div>
+        </div>
+    
+        <div style="text-align: center; color: #000000;">
+            <p style="font-size: 14px; margin: 5px 0;">Created and Designed by Cherylyn Yong</p>
+            <p style="font-size: 14px; margin: 5px 0;">
+                Data Source: 
+                <a href="https://open.dosm.gov.my/data-catalogue/hies_district" target="_blank" style="color: #007bff; text-decoration: none;">
+                    Department of Statistics Malaysia (DOSM)
+                </a>
+            </p>
+        </div>
+    </div>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
