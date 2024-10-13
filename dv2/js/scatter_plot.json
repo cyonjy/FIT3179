@@ -122,7 +122,7 @@
       {
         "mark": {
           "type": "text",
-          "dy": -20,  
+          "dy": -25,  
           "fontSize": 9,
           "color": "black",
           "fontWeight": "italic"
