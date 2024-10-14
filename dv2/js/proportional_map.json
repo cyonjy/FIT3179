@@ -102,9 +102,8 @@
           }
         },
         "color": {
-          "field": "state",
+          "field": "State",
           "type": "nominal",
-          "title": "State",
           "legend": {
             "orient": "right",
             "title": "State"
@@ -115,16 +114,15 @@
         },
         "opacity": {
           "condition": {
-            "test": "state_option === null || datum.state === state_option",
+            "test": "state_option === null || datum.State === state_option",
             "value": 1
           },
           "value": 0.1
         },
         "tooltip": [
           {
-            "field": "state",
-            "type": "nominal",
-            "title": "State"
+            "field": "State",
+            "type": "nominal"
           },
           {
             "field": "district",
