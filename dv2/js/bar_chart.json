@@ -132,9 +132,8 @@
       },
       "encoding": {
         "x": {
-          "field": "state",
+          "field": "State",
           "type": "nominal",
-          "title": "State",
           "axis": {
             "labelAngle": 270,
             "grid": false
@@ -150,13 +149,13 @@
           }
         },
         "tooltip": [
-          { "field": "state", "type": "nominal", "title": "State" },
+          { "field": "State", "type": "nominal" },
           { "field": "total_income", "type": "quantitative", "title": "Total Median Income (RM)", "format": ".2f" }
         ]
       },
       "transform": [
         {
-          "filter": "state_option == null || datum.state == state_option"
+          "filter": "state_option == null || datum.State == state_option"
         },
         {
           "filter": "datum.total_income >= income_threshold"
@@ -173,7 +172,7 @@
         "color": "darkred"
       },
       "encoding": {
-        "x": { "field": "state", "type": "nominal" },
+        "x": { "field": "State", "type": "nominal" },
         "y": { "field": "total_income", "type": "quantitative" },
         "text": { "field": "highest_annotation", "type": "nominal" }
       }
@@ -188,7 +187,7 @@
         "color": "blue"
       },
       "encoding": {
-        "x": { "field": "state", "type": "nominal" },
+        "x": { "field": "State", "type": "nominal" },
         "y": { "field": "total_income", "type": "quantitative" },
         "text": { "field": "lowest_annotation", "type": "nominal" }
       }
